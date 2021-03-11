@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/ActivateNumerScreen.dart';
+import 'package:viking/Ui%20Screen/ChooseCountry.dart';
+import 'package:viking/Ui%20Screen/HomePage.dart';
 import 'package:viking/Widgets/MyButtonRaised.dart';
 import 'package:viking/Widgets/MyTextField.dart';
 
@@ -65,6 +68,9 @@ class _LoginPageState extends State<LoginPage> {
             height: 30,
           ),
           MyButtonRaised(
+            onPressed: () {
+              Navigator.push(context, SlideRightRoute(page: Home()));
+            },
             title: "Login ",
           ),
           SizedBox(
@@ -76,7 +82,8 @@ class _LoginPageState extends State<LoginPage> {
               Text('I don\'t have an account? '),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: RegisterPage()));
+                  Navigator.push(
+                      context, SlideRightRoute(page: RegisterPage()));
                 },
                 child: Text(
                   'Sign Up',
