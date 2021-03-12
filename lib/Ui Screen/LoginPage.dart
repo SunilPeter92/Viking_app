@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+
 import 'package:viking/Animation/Slider.dart';
+
 import 'package:viking/Widgets/MyButtonRaised.dart';
 import 'package:viking/Widgets/MyTextField.dart';
-
+import 'package:flutter/services.dart';
+import 'ActivateNumerScreen.dart';
 import 'Register.dart';
+import 'MessageScreen.dart';
+import 'DialScreen.dart';
+import 'RenewPhone.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -65,6 +70,9 @@ class _LoginPageState extends State<LoginPage> {
             height: 30,
           ),
           MyButtonRaised(
+            onPressed: () {
+              Navigator.push(context, SlideRightRoute(page: DialScreen()));
+            },
             title: "Login ",
           ),
           SizedBox(
@@ -76,7 +84,8 @@ class _LoginPageState extends State<LoginPage> {
               Text('I don\'t have an account? '),
               InkWell(
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: RegisterPage()));
+                  Navigator.push(
+                      context, SlideRightRoute(page: RegisterPage()));
                 },
                 child: Text(
                   'Sign Up',

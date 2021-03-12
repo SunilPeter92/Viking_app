@@ -12,9 +12,8 @@ class _SpalshState extends State<Splash> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    new Future.delayed(const Duration(seconds: 3),(){
-      Navigator.push(context, SlideRightRoute(page: LoginPage()));
-
+    new Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(context, SlideRightRoute(page: LoginPage()));
     });
   }
 
@@ -22,7 +21,7 @@ class _SpalshState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child:   Image.asset(
+        child: Image.asset(
           'assets/images/logo.png',
           width: 150,
           height: 150,
