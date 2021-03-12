@@ -1,4 +1,3 @@
-import 'package:flag/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:viking/Widgets/CountryListCard.dart';
 import 'package:viking/Animation/Slider.dart';
@@ -17,9 +16,11 @@ class _ChooseCountryState extends State<ChooseCountry> {
     height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back, color: Colors.white),
         ),
         title: Text(
           "Choose Country",
@@ -28,9 +29,12 @@ class _ChooseCountryState extends State<ChooseCountry> {
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(
-              Icons.close,
+            child: IconButton(
+              icon: Icon(Icons.close),
               color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           )
         ],

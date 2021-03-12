@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:viking/Widgets/CreditsBox.dart';
 import 'package:viking/Widgets/MinutesAndTexts.dart';
 import 'ChooseCountry.dart';
@@ -17,6 +18,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -95,7 +97,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.orange,
                     borderRadius: BorderRadius.all(Radius.circular(25.0) //
                         ),
                   ),
@@ -176,7 +178,7 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    height: height * 0.13,
+                    height: height * 0.14,
                     width: width / 2.5,
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
@@ -216,7 +218,7 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    height: height * 0.13,
+                    height: height * 0.14,
                     width: width / 2.5,
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
@@ -231,42 +233,42 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
-      bottomNavigationBar: new BottomNavigationBar(
-          showUnselectedLabels: true,
-          unselectedItemColor: Colors.grey,
+      // bottomNavigationBar: new BottomNavigationBar(
+      //     showUnselectedLabels: true,
+      //     unselectedItemColor: Colors.grey,
 
-          // new
-          currentIndex: 0,
-          fixedColor: Colors.green,
-          items: [
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: new Icon(
-                Icons.home_outlined,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Contacts",
-              backgroundColor: Color(0xFF4E862D),
-              icon: new Icon(
-                Icons.people,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Phone",
-              backgroundColor: Color(0xFF4E862D),
-              icon: new Icon(
-                Icons.phone,
-              ),
-            ),
-            BottomNavigationBarItem(
-              label: "Phone",
-              backgroundColor: Color(0xFF4E862D),
-              icon: new Icon(
-                Icons.chat,
-              ),
-            ),
-          ]),
+      //     // new
+      //     currentIndex: 0,
+      //     fixedColor: Colors.green,
+      //     items: [
+      //       BottomNavigationBarItem(
+      //         label: "Home",
+      //         icon: new Icon(
+      //           Icons.home_outlined,
+      //         ),
+      //       ),
+      //       BottomNavigationBarItem(
+      //         label: "Contacts",
+      //         backgroundColor: Color(0xFF4E862D),
+      //         icon: new Icon(
+      //           Icons.people,
+      //         ),
+      //       ),
+      //       BottomNavigationBarItem(
+      //         label: "Phone",
+      //         backgroundColor: Color(0xFF4E862D),
+      //         icon: new Icon(
+      //           Icons.phone,
+      //         ),
+      //       ),
+      //       BottomNavigationBarItem(
+      //         label: "Message",
+      //         backgroundColor: Color(0xFF4E862D),
+      //         icon: new Icon(
+      //           Icons.chat,
+      //         ),
+      //       ),
+      //     ]),
     );
   }
 }
