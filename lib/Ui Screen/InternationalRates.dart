@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:viking/Widgets/CountryFavouriteTile.dart';
 
+import '../Animation/Slider.dart';
+import 'ExtendCredits.dart';
+import 'IncreaseBalance.dart';
+
 class InternationalRates extends StatefulWidget {
   @override
   _InternationalRatesState createState() => _InternationalRatesState();
@@ -42,7 +46,10 @@ class _InternationalRatesState extends State<InternationalRates> {
                       style: TextStyle(
                           fontSize: screenwidth * 0.05, color: Colors.white),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context, SlideRightRoute(page: IncreaseBalance()));
+                    },
                   ),
                 ),
                 SizedBox(
@@ -62,7 +69,10 @@ class _InternationalRatesState extends State<InternationalRates> {
                       style: TextStyle(
                           fontSize: screenwidth * 0.05, color: Colors.orange),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context, SlideRightRoute(page: ExtendsCredits()));
+                    },
                   ),
                 ),
               ],

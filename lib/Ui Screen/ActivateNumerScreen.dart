@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:viking/Widgets/MyButtonRaised.dart';
 
+import '../Animation/Slider.dart';
+import 'HomePage.dart';
+import 'InternationalRates.dart';
+
 class ActivateNumber extends StatefulWidget {
   @override
   _ActivateNumberState createState() => _ActivateNumberState();
@@ -101,7 +105,9 @@ class _ActivateNumberState extends State<ActivateNumber> {
             SizedBox(
               height: height * 0.1,
               child: MyButtonRaised(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context, SlideRightRoute(page: Home()));
+                },
                 title: "Continue",
               ),
             ),
@@ -150,7 +156,10 @@ class _ActivateNumberState extends State<ActivateNumber> {
                           style: BorderStyle.solid),
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context, SlideRightRoute(page: InternationalRates()));
+                    },
                     child: Text(
                       "Subscribe Monthly - \$500.00 ",
                       style: TextStyle(

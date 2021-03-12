@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 import 'package:viking/Animation/Slider.dart';
-import 'HomePage.dart';
-import 'IncreaseBalance.dart';
-import 'package:viking/Ui%20Screen/SearchContacts.dart';
-import 'InternationalRates.dart';
+
 import 'package:viking/Widgets/MyButtonRaised.dart';
 import 'package:viking/Widgets/MyTextField.dart';
 import 'package:flutter/services.dart';
+import 'ActivateNumerScreen.dart';
 import 'Register.dart';
-import 'ExtendCredits.dart';
-
+import 'MessageScreen.dart';
+import 'DialScreen.dart';
 import 'RenewPhone.dart';
 
 class LoginPage extends StatefulWidget {
@@ -73,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           MyButtonRaised(
             onPressed: () {
-              Navigator.push(context, SlideRightRoute(page: Home()));
+              Navigator.push(context, SlideRightRoute(page: ActivateNumber()));
             },
             title: "Login ",
           ),
