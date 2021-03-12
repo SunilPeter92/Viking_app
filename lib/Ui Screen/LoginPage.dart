@@ -71,7 +71,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           MyButtonRaised(
             onPressed: () {
-              Navigator.push(context, SlideRightRoute(page: ActivateNumber()));
+              Navigator.push(context, SlideRightRoute(page: DialScreen()));
             },
             title: "Login ",
           ),
