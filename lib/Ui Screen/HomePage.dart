@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'RenewPhone.dart';
 import 'package:viking/Widgets/CreditsBox.dart';
 import 'package:viking/Widgets/MinutesAndTexts.dart';
 import 'ChooseCountry.dart';
 import 'package:viking/Animation/Slider.dart';
+import 'Settings.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -28,10 +29,14 @@ class _HomeState extends State<Home> {
               SizedBox(
                 height: height * 0.05,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [Icon(Icons.settings, color: Colors.green)],
-              ),
+              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  onPressed: () {
+                    Navigator.push(context, SlideRightRoute(page: Settings()));
+                  },
+                )
+              ]),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -121,6 +126,10 @@ class _HomeState extends State<Home> {
               Row(
                 children: [
                   Creditbox(
+                    function: () {
+                      Navigator.push(
+                          context, SlideRightRoute(page: RenewPhone()));
+                    },
                     credits: "0",
                   ),
                   SizedBox(
@@ -129,6 +138,10 @@ class _HomeState extends State<Home> {
                   MinutesAndTexts(
                     minutes: "0",
                     text: "0",
+                    function: () {
+                      Navigator.push(
+                          context, SlideRightRoute(page: RenewPhone()));
+                    },
                   ),
                 ],
               ),
@@ -178,7 +191,7 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    height: height * 0.14,
+                    height: height * 0.15,
                     width: width / 2.5,
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
@@ -218,7 +231,7 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-                    height: height * 0.14,
+                    height: height * 0.15,
                     width: width / 2.5,
                     decoration: BoxDecoration(
                       color: Colors.grey[100],

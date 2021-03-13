@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../Ui Screen/IncreaseBalance.dart';
+import '../Animation/Slider.dart';
 
 class ExtendsCredits extends StatefulWidget {
   @override
@@ -71,7 +73,10 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                 "Get More",
                                 style: TextStyle(color: Colors.orange),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(context,
+                                    SlideRightRoute(page: IncreaseBalance()));
+                              },
                             )
                           ],
                         ),
@@ -160,7 +165,12 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                         fontSize: screenwidth * 0.05,
                                         color: Colors.white),
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        SlideRightRoute(
+                                            page: IncreaseBalance()));
+                                  }),
                             ),
                           ),
                         ],
@@ -277,7 +287,12 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                         fontSize: screenwidth * 0.05,
                                         color: Colors.white),
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        SlideRightRoute(
+                                            page: IncreaseBalance()));
+                                  }),
                             ),
                           ),
                         ],
@@ -404,7 +419,12 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                         fontSize: screenwidth * 0.05,
                                         color: Colors.white),
                                   ),
-                                  onPressed: () {}),
+                                  onPressed: () {
+                                    Navigator.push(
+                                        context,
+                                        SlideRightRoute(
+                                            page: IncreaseBalance()));
+                                  }),
                             ),
                           ),
                         ],

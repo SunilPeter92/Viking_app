@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Animation/Slider.dart';
 
 class MessageScreen extends StatefulWidget {
   @override
@@ -85,10 +86,13 @@ class _MessageScreenState extends State<MessageScreen> {
               SizedBox(
                 width: 10,
               ),
-              Icon(
-                Icons.camera_alt_outlined,
-                color: Colors.orange,
-                size: screenwidth * 0.1,
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.camera_alt_outlined,
+                  color: Colors.orange,
+                  size: screenwidth * 0.1,
+                ),
               ),
               Expanded(
                 child: TextField(
@@ -115,10 +119,16 @@ class _MessageScreenState extends State<MessageScreen> {
                   ),
                 ),
               ),
-              Icon(
-                Icons.send,
-                color: Colors.orange,
-                size: screenwidth * 0.1,
+              IconButton(
+                icon: Icon(
+                  Icons.send,
+                  color: Colors.orange,
+                  size: screenwidth * 0.1,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context, SlideRightRoute(page: MessageScreen()));
+                },
               ),
               SizedBox(
                 width: 8,

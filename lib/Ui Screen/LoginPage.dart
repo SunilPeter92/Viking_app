@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/ChooseCountry.dart';
+import 'package:viking/Ui%20Screen/HomePage.dart';
+import 'package:viking/Ui%20Screen/InternationalRates.dart';
+import 'package:viking/Widgets/CountryFavouriteTile.dart';
 
 import 'package:viking/Widgets/MyButtonRaised.dart';
 import 'package:viking/Widgets/MyTextField.dart';
@@ -19,7 +23,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
+    // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
