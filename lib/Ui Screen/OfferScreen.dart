@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import '../Widgets/MyButtonRaised.dart';
 import 'RenewPhone.dart';
 import '../Animation/Slider.dart';
@@ -41,14 +41,6 @@ class _OfferScreenState extends State<OfferScreen> {
           )),
           SizedBox(
             height: height * 0.1,
-          ),
-          Container(
-            child: SmoothPageIndicator(
-              controller: controller,
-              count: 5,
-              effect: WormEffect(
-                  dotColor: Colors.grey, activeDotColor: Colors.orange),
-            ),
           ),
           Divider(),
           Center(

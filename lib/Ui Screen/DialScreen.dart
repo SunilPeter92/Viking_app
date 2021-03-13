@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import '../Animation/Slider.dart';
-
+import 'InboxScreen.dart';
+import 'Contacts.dart';
 import 'RecentCalls.dart';
 import 'SearchContacts.dart';
 import 'Settings.dart';
@@ -68,7 +69,7 @@ class _DialScreenState extends State<DialScreen> {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(context, SlideRightRoute(page: MessageScreen()));
+              Navigator.push(context, SlideRightRoute(page: InBoxScreen()));
             },
             color: Colors.white,
             icon: Icon(
@@ -224,8 +225,7 @@ class _DialScreenState extends State<DialScreen> {
                 leading: Icon(Icons.chat),
                 title: Text("Messages"),
                 onTap: () {
-                  Navigator.push(
-                      context, SlideRightRoute(page: MessageScreen()));
+                  Navigator.push(context, SlideRightRoute(page: InBoxScreen()));
                 },
               ),
               ListTile(
@@ -247,7 +247,7 @@ class _DialScreenState extends State<DialScreen> {
                 leading: Icon(Icons.person),
                 title: Text("Contacts"),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                  Navigator.push(context, SlideRightRoute(page: Contacts()));
                 },
               ),
               Divider(
