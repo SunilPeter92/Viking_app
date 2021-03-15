@@ -26,8 +26,11 @@ class _SearchContactsState extends State<SearchContacts> {
                   style: TextStyle(
                       fontSize: screenwidth * 0.07, color: Colors.orange),
                 ),
-                Icon(Icons.add_circle_outline_outlined,
-                    color: Colors.orange, size: screenwidth * 0.09)
+                IconButton(
+                  icon: Icon(Icons.add_circle_outline_outlined,
+                      color: Colors.orange, size: screenwidth * 0.09),
+                  onPressed: () {},
+                )
               ],
             ),
             SizedBox(

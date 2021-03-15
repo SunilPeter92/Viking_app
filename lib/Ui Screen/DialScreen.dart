@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'CallScreen.dart';
 import '../Animation/Slider.dart';
 import 'InboxScreen.dart';
 import 'Contacts.dart';
@@ -104,6 +104,7 @@ class _DialScreenState extends State<DialScreen> {
               width: width / 1.4,
               height: height / 1.8,
               child: GridView.builder(
+                  physics: NeverScrollableScrollPhysics(),
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
@@ -143,7 +144,7 @@ class _DialScreenState extends State<DialScreen> {
                           child: Text(
                             tags[index],
                             style: TextStyle(
-                                fontSize: width * 0.035, color: Colors.grey),
+                                fontSize: width * 0.030, color: Colors.grey),
                           ),
                         )
                       ],
@@ -156,7 +157,14 @@ class _DialScreenState extends State<DialScreen> {
                 Padding(
                   padding: EdgeInsets.only(left: 10),
                   child: MaterialButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          SlideRightRoute(
+                              page: CallScreen(
+                            number: textfield.text,
+                          )));
+                    },
                     color: Colors.orange,
                     textColor: Colors.white,
                     child: Padding(

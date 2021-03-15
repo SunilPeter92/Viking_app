@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/DialScreen.dart';
+import 'package:viking/Ui%20Screen/SearchContacts.dart';
 
 class Contacts extends StatefulWidget {
   @override
@@ -39,12 +42,17 @@ class _ContactsState extends State<Contacts> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.search,
-                color: Colors.white,
-              ),
-            )
+                padding: const EdgeInsets.all(8.0),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context, SlideRightRoute(page: SearchContacts()));
+                  },
+                ))
           ],
         ),
         body: TabBarView(

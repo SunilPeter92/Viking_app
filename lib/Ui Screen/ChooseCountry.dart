@@ -244,6 +244,14 @@ class _ChooseCountryState extends State<ChooseCountry> {
             sms: true,
             function: () {
               //  Navigator.push(context, SlideRightRoute(page: ActivateNumber()));
+              Navigator.push(
+                  context,
+                  SlideRightRoute(
+                      page: SelectState(
+                    isIdRequired: true,
+                    countryname: "USA",
+                    isAdressRequired: false,
+                  )));
             },
           ),
           CountryCard(
@@ -255,6 +263,14 @@ class _ChooseCountryState extends State<ChooseCountry> {
             sms: true,
             function: () {
               //    Navigator.push(context, SlideRightRoute(page: ActivateNumber()));
+              Navigator.push(
+                  context,
+                  SlideRightRoute(
+                      page: SelectState(
+                    isIdRequired: true,
+                    countryname: "USA",
+                    isAdressRequired: false,
+                  )));
             },
           ),
           CountryCard(
@@ -265,7 +281,14 @@ class _ChooseCountryState extends State<ChooseCountry> {
             mms: false,
             sms: true,
             function: () {
-              //   Navigator.push(context, SlideRightRoute(page: ActivateNumber()));
+              Navigator.push(
+                  context,
+                  SlideRightRoute(
+                      page: SelectState(
+                    isIdRequired: true,
+                    countryname: "USA",
+                    isAdressRequired: false,
+                  )));
             },
           ),
           CountryCard(

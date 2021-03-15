@@ -31,7 +31,10 @@ class _HomeState extends State<Home> {
               ),
               Row(mainAxisAlignment: MainAxisAlignment.end, children: [
                 IconButton(
-                  icon: Icon(Icons.settings),
+                  icon: Icon(
+                    Icons.settings,
+                    color: Colors.orange,
+                  ),
                   onPressed: () {
                     Navigator.push(context, SlideRightRoute(page: Settings()));
                   },

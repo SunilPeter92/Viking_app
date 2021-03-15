@@ -11,6 +11,21 @@ class _RenewPhoneState extends State<RenewPhone> {
   double screenwidth, screenheight;
   var screenPickerColor = Colors.white;
   var status = false;
+
+  List<Color> colors = [
+    Colors.white,
+    Colors.white,
+    Colors.white,
+    Colors.white,
+    Colors.white
+  ];
+  List<Color> borders = [
+    Colors.orange,
+    Colors.purple,
+    Colors.green,
+    Colors.brown,
+    Colors.red
+  ];
   @override
   Widget build(BuildContext context) {
     screenwidth = MediaQuery.of(context).size.width;
@@ -91,55 +106,125 @@ class _RenewPhoneState extends State<RenewPhone> {
                   ),
                 ],
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  ColorIndicator(
-                    onSelect: () {},
-                    width: 44,
-                    height: 44,
-                    borderRadius: 25,
-                    borderColor: Colors.orange,
-                    hasBorder: true,
-                    color: Colors.orange,
+              Container(
+                decoration: new BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15.0),
+                    ),
+                    color: Colors.grey[100]),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ColorIndicator(
+                        onSelect: () {
+                          if (colors[0] == Colors.white) {
+                            for (int i = 0; i < colors.length; i++) {
+                              colors[i] = Colors.white;
+                            }
+                            colors[0] = borders[0];
+                            setState(() {});
+                          } else {
+                            setState(() {
+                              colors[0] = Colors.white;
+                            });
+                          }
+                        },
+                        width: 44,
+                        height: 44,
+                        borderRadius: 25,
+                        borderColor: borders[0],
+                        hasBorder: true,
+                        color: colors[0],
+                      ),
+                      ColorIndicator(
+                        onSelect: () {
+                          if (colors[1] == Colors.white) {
+                            for (int i = 0; i < colors.length; i++) {
+                              colors[i] = Colors.white;
+                            }
+                            colors[1] = borders[1];
+                            setState(() {});
+                          } else {
+                            setState(() {
+                              colors[1] = Colors.white;
+                            });
+                          }
+                        },
+                        width: 44,
+                        height: 44,
+                        borderRadius: 25,
+                        borderColor: borders[1],
+                        hasBorder: true,
+                        color: colors[1],
+                      ),
+                      ColorIndicator(
+                        onSelect: () {
+                          if (colors[2] == Colors.white) {
+                            for (int i = 0; i < colors.length; i++) {
+                              colors[i] = Colors.white;
+                            }
+                            colors[2] = borders[2];
+                            setState(() {});
+                          } else {
+                            setState(() {
+                              colors[2] = Colors.white;
+                            });
+                          }
+                        },
+                        width: 44,
+                        height: 44,
+                        borderRadius: 25,
+                        borderColor: borders[2],
+                        hasBorder: true,
+                        color: colors[2],
+                      ),
+                      ColorIndicator(
+                        onSelect: () {
+                          if (colors[3] == Colors.white) {
+                            for (int i = 0; i < colors.length; i++) {
+                              colors[i] = Colors.white;
+                            }
+                            colors[3] = borders[3];
+                            setState(() {});
+                          } else {
+                            setState(() {
+                              colors[3] = Colors.white;
+                            });
+                          }
+                        },
+                        width: 44,
+                        height: 44,
+                        borderRadius: 25,
+                        borderColor: borders[3],
+                        hasBorder: true,
+                        color: colors[3],
+                      ),
+                      ColorIndicator(
+                        onSelect: () {
+                          if (colors[4] == Colors.white) {
+                            for (int i = 0; i < colors.length; i++) {
+                              colors[i] = Colors.white;
+                            }
+                            colors[4] = borders[4];
+                            setState(() {});
+                          } else {
+                            setState(() {
+                              colors[4] = Colors.white;
+                            });
+                          }
+                        },
+                        width: 44,
+                        height: 44,
+                        borderRadius: 25,
+                        borderColor: borders[4],
+                        hasBorder: true,
+                        color: colors[4],
+                      ),
+                    ],
                   ),
-                  ColorIndicator(
-                    onSelect: () {},
-                    width: 44,
-                    height: 44,
-                    borderRadius: 25,
-                    borderColor: Colors.purple,
-                    hasBorder: true,
-                    color: Colors.white,
-                  ),
-                  ColorIndicator(
-                    onSelect: () {},
-                    width: 44,
-                    height: 44,
-                    borderRadius: 25,
-                    borderColor: Colors.green,
-                    hasBorder: true,
-                    color: Colors.white,
-                  ),
-                  ColorIndicator(
-                    onSelect: () {},
-                    width: 44,
-                    height: 44,
-                    borderRadius: 25,
-                    borderColor: Colors.brown,
-                    hasBorder: true,
-                    color: Colors.white,
-                  ),
-                  ColorIndicator(
-                    onSelect: () {},
-                    width: 44,
-                    height: 44,
-                    borderRadius: 25,
-                    borderColor: Colors.brown,
-                    hasBorder: true,
-                    color: Colors.white,
-                  ),
-                ],
+                ),
               ),
               Row(
                 children: [
@@ -159,7 +244,7 @@ class _RenewPhoneState extends State<RenewPhone> {
               ),
               Container(
                 width: screenwidth * 0.9,
-                height: screenheight * 0.12,
+                height: screenheight * 0.14,
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.only(
@@ -168,7 +253,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(screenheight * 0.02),
                   child: Column(
                     children: [
                       Row(
@@ -180,7 +265,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: screenheight * 0.01,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -216,7 +301,7 @@ class _RenewPhoneState extends State<RenewPhone> {
               ),
               Container(
                 width: screenwidth * 0.9,
-                height: screenheight * 0.12,
+                height: screenheight * 0.14,
                 decoration: BoxDecoration(
                   color: Colors.grey[200],
                   borderRadius: BorderRadius.only(
@@ -225,7 +310,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                   ),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(12),
+                  padding: EdgeInsets.all(screenheight * 0.02),
                   child: Column(
                     children: [
                       Row(
@@ -237,7 +322,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                         ],
                       ),
                       SizedBox(
-                        height: 10,
+                        height: screenheight * 0.01,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,6 +332,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                                   fontSize: screenwidth * 0.035,
                                   color: Colors.grey[500])),
                           FlutterSwitch(
+                            activeColor: Colors.orange,
                             width: screenwidth * 0.15,
                             height: screenheight * 0.040,
                             valueFontSize: 0,

@@ -39,7 +39,7 @@ class _RecentCallsState extends State<RecentCalls> {
           ),
           actions: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(8.0),
               child: IconButton(
                 icon: Icon(Icons.more_vert_rounded),
                 color: Colors.white,
