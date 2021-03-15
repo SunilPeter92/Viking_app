@@ -23,73 +23,76 @@ class _SelectStateState extends State<SelectState> {
   void initState() {
     // TODO: implement initState
 
-    if (widget.isAdressRequired) {
-      Future.delayed(Duration(milliseconds: 500)).then((value) => {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: Center(child: new Text("Address Required")),
-                  content: Container(
-                    height: MediaQuery.of(context).size.height / 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                          child: new Text(
-                            widget.countryname +
-                                " local numbers require identity verification by law. You will be asked to upload documents.",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        MyButtonRaised(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          title: "Okay",
-                        )
-                      ],
-                    ),
-                  ),
-                ))
-          });
-    }
+    // if (widget.isAdressRequired) {
+    //   Future.delayed(Duration(milliseconds: 500)).then((value) => {
+    //         // ignore: missing_required_param
+    //         showDialog(
+    //           builder: (context) {
+    //             new AlertDialog(
+    //               title: Center(child: new Text("Address Required")),
+    //               content: Container(
+    //                 height: MediaQuery.of(context).size.height / 4,
+    //                 child: Column(
+    //                   mainAxisAlignment: MainAxisAlignment.center,
+    //                   children: [
+    //                     Center(
+    //                       child: new Text(
+    //                         widget.countryname +
+    //                             " local numbers require identity verification by law. You will be asked to upload documents.",
+    //                         style: TextStyle(color: Colors.grey),
+    //                       ),
+    //                     ),
+    //                     SizedBox(
+    //                       height: 10,
+    //                     ),
+    //                     MyButtonRaised(
+    //                       onPressed: () {
+    //                         Navigator.of(context).pop();
+    //                       },
+    //                       title: "Okay",
+    //                     )
+    //                   ],
+    //                 ),
+    //               ),
+    //             );
+    //           },
+    //         )
+    //       });
+    // }
 
-    if (widget.isIdRequired) {
-      Future.delayed(Duration(milliseconds: 500)).then((value) => {
-            showDialog(
-                context: context,
-                child: new AlertDialog(
-                  title: Center(child: new Text("ID Required")),
-                  content: Container(
-                    height: MediaQuery.of(context).size.height / 4,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Center(
-                          child: new Text(
-                            widget.countryname +
-                                " local numbers require identity verification by law. You will be asked to upload documents.",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        MyButtonRaised(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          title: "Okay",
-                        )
-                      ],
-                    ),
-                  ),
-                ))
-          });
-    }
+    // if (widget.isIdRequired) {
+    //   Future.delayed(Duration(milliseconds: 500)).then((value) => {
+    //         showDialog(
+    //             context: context,
+    //             child: new AlertDialog(
+    //               title: Center(child: new Text("ID Required")),
+    //               content: Container(
+    //                 height: MediaQuery.of(context).size.height / 4,
+    //                 child: Column(
+    //                   mainAxisAlignment: MainAxisAlignment.center,
+    //                   children: [
+    //                     Center(
+    //                       child: new Text(
+    //                         widget.countryname +
+    //                             " local numbers require identity verification by law. You will be asked to upload documents.",
+    //                         style: TextStyle(color: Colors.grey),
+    //                       ),
+    //                     ),
+    //                     SizedBox(
+    //                       height: 10,
+    //                     ),
+    //                     MyButtonRaised(
+    //                       onPressed: () {
+    //                         Navigator.of(context).pop();
+    //                       },
+    //                       title: "Okay",
+    //                     )
+    //                   ],
+    //                 ),
+    //               ),
+    //             ), builder: (BuildContext context) {  })
+    //       });
+    // }
 
     super.initState();
   }

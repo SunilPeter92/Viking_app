@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+//import 'package:flutter_twilio_voice/flutter_twilio_voice.dart';
+//import '../Widgets/CallingFeature.dart';
 
 class CallScreen extends StatefulWidget {
   final String number;
@@ -17,9 +19,33 @@ class _CallScreenState extends State<CallScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    // Future.delayed(Duration(seconds: 2), () {
+    //   requestpermissions().then((value) => {makecall()});
+    // });
   }
 
-  Future<void> makecall() async {}
+  // Future<void> requestpermissions() async {
+  //   var abc = await FlutterTwilioVoice.requestBackgroundPermissions();
+
+  //   var bcd = await FlutterTwilioVoice.requestMicAccess();
+  // }
+
+  // Future<void> makecall() async {
+  //   try {
+  //     // await FlutterTwilioVoice.makeCall(
+  //     //     toDisplayName: "",
+  //     //     to: "+923158733304",
+  //     //     from: "+16513834786",
+  //     //     accessTokenUrl:
+  //     //         "https://47d329d1d4947604fb6edb4034083a03/accesstoken");
+
+  //     await FlutterTwilioVoice.registerClient(
+  //         "AC794b2ecc2dd009149caa49687175f3a2", "wali khan");
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
