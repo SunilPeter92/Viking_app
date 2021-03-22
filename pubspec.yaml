@@ -33,6 +33,10 @@ dependencies:
   flutter_switch: ^0.2.2
   
   flag: ^5.0.0-nullsafety
+  contacts_service: ^0.4.6
+  permission_handler: ^6.1.1
+  google_fonts: ^2.0.0
+  
   
   
  

@@ -12,18 +12,24 @@ class _RecentCallsState extends State<RecentCalls> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          bottom:
-              TabBar(indicatorWeight: 5.0, indicatorColor: Colors.red, tabs: [
-            Tab(
-              child: Text("ALL", style: TextStyle(color: Colors.white)),
-            ),
-            Tab(
-              child: Text(
-                "MISSED",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ]),
+          backgroundColor: Theme.of(context).accentColor,
+          bottom: TabBar(
+              indicatorWeight: 5.0,
+              indicatorColor: Theme.of(context).canvasColor,
+              tabs: [
+                Tab(
+                  child: Text(
+                    "ALL",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                Tab(
+                  child: Text(
+                    "MISSED",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ]),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -54,7 +60,7 @@ class _RecentCallsState extends State<RecentCalls> {
                 child: Text(
               "No Recent Calls",
               style: TextStyle(
-                color: Colors.grey,
+                color: Theme.of(context).cardColor,
                 fontSize: 20,
               ),
             )),
@@ -62,7 +68,7 @@ class _RecentCallsState extends State<RecentCalls> {
                 child: Text(
               "No Recent Calls",
               style: TextStyle(
-                color: Colors.grey,
+                color: Theme.of(context).cardColor,
                 fontSize: 20,
               ),
             )),

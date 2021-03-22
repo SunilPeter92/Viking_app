@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:viking/Animation/Slider.dart';
 import 'package:viking/Ui%20Screen/DialScreen.dart';
 import 'package:viking/Ui%20Screen/SearchContacts.dart';
+import 'package:viking/Ui Screen/ContactsPage.dart';
 
 class Contacts extends StatefulWidget {
   @override
@@ -57,14 +58,16 @@ class _ContactsState extends State<Contacts> {
         ),
         body: TabBarView(
           children: [
-            Center(
-                child: Text(
-              "You've got no contacts in \n    your Address Book",
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 20,
-              ),
-            )),
+            ContactsPage(),
+
+            // Center(
+            //     child: Text(
+            //   "You've got no contacts in \n    your Address Book",
+            //   style: TextStyle(
+            //     color: Colors.grey,
+            //     fontSize: 20,
+            //   ),
+            // )),
             Center(
                 child: Text(
               "You've got no contacts in \n    your Address Book",

@@ -20,7 +20,7 @@ class MyButtonRaised extends StatelessWidget {
             title,
             style: TextStyle(fontSize: 18, color: Colors.white),
           ),
-          color: Colors.orange,
+          color: Theme.of(context).cardColor,
         ),
       ),
     );

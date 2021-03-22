@@ -25,6 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     // SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -38,7 +39,10 @@ class _LoginPageState extends State<LoginPage> {
           ),
           Text(
             'Viking',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+            style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).canvasColor),
           ),
           SizedBox(
             height: 10,
@@ -64,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   'Forget Password ?',
                   style: TextStyle(
-                      color: Theme.of(context).primaryColor,
+                      color: Theme.of(context).canvasColor,
                       fontWeight: FontWeight.bold),
                 ),
               ],
@@ -85,7 +89,10 @@ class _LoginPageState extends State<LoginPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('I don\'t have an account? '),
+              Text(
+                'I don\'t have an account? ',
+                style: TextStyle(color: Theme.of(context).canvasColor),
+              ),
               InkWell(
                 onTap: () {
                   Navigator.push(

@@ -53,8 +53,9 @@ class _DialScreenState extends State<DialScreen> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         iconTheme: IconThemeData(color: Colors.white),
         title: Text("Keypad", style: TextStyle(color: Colors.white)),
         actions: [
@@ -87,7 +88,7 @@ class _DialScreenState extends State<DialScreen> {
             Center(
                 child: Text(
               "Country Code with + is required",
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Theme.of(context).canvasColor),
             )),
             Padding(
               padding: EdgeInsets.all(8.0),
@@ -95,7 +96,7 @@ class _DialScreenState extends State<DialScreen> {
                 width: width / 1.6,
                 child: TextField(
                   readOnly: true,
-                  style: TextStyle(fontSize: width * 0.05),
+                  style: TextStyle(fontSize: width * 0.05, color: Colors.grey),
                   controller: textfield,
                 ),
               ),
@@ -108,8 +109,8 @@ class _DialScreenState extends State<DialScreen> {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    crossAxisSpacing: 5,
-                    mainAxisSpacing: 2,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 10,
                   ),
                   itemCount: this.nums.length,
                   itemBuilder: (context, index) {
@@ -129,12 +130,14 @@ class _DialScreenState extends State<DialScreen> {
                             onPressed: () {
                               this.textfield.text += nums[index];
                             },
-                            color: Colors.white,
+                            color: Theme.of(context).canvasColor,
                             textColor: Colors.white,
                             child: Text(
                               nums[index],
-                              style:
-                                  TextStyle(fontSize: 18, color: Colors.black),
+                              style: TextStyle(
+                                fontSize: 22,
+                                color: Colors.black,
+                              ),
                             ),
                             shape: CircleBorder(),
                           ),
@@ -144,7 +147,7 @@ class _DialScreenState extends State<DialScreen> {
                           child: Text(
                             tags[index],
                             style: TextStyle(
-                                fontSize: width * 0.030, color: Colors.grey),
+                                fontSize: width * 0.030, color: Colors.black),
                           ),
                         )
                       ],
@@ -165,7 +168,7 @@ class _DialScreenState extends State<DialScreen> {
                             number: textfield.text,
                           )));
                     },
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                     textColor: Colors.white,
                     child: Padding(
                       padding: EdgeInsets.all(20),
@@ -191,6 +194,7 @@ class _DialScreenState extends State<DialScreen> {
                   icon: Icon(
                     Icons.backspace,
                     size: width * 0.09,
+                    color: Theme.of(context).canvasColor,
                   ),
                 )
               ],
@@ -200,6 +204,7 @@ class _DialScreenState extends State<DialScreen> {
       ),
       drawer: Drawer(
         child: Container(
+          color: Colors.grey.shade900,
           child: ListView(
             children: [
               SizedBox(
@@ -211,7 +216,7 @@ class _DialScreenState extends State<DialScreen> {
                     padding: EdgeInsets.all(10.0),
                     child: Text("Get one more number!"),
                   ),
-                  color: Colors.orange,
+                  color: Theme.of(context).cardColor,
                   onPressed: () {
                     Navigator.push(
                         context, SlideRightRoute(page: ActivateNumber()));
@@ -222,55 +227,105 @@ class _DialScreenState extends State<DialScreen> {
                 height: 10,
               ),
               ListTile(
-                leading: Icon(Icons.monetization_on_outlined),
-                title: Text("Balance"),
+                leading: Icon(
+                  Icons.monetization_on_outlined,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Balance",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(
                       context, SlideRightRoute(page: ActivateNumber()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.chat),
-                title: Text("Messages"),
+                leading: Icon(
+                  Icons.chat,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Messages",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(context, SlideRightRoute(page: InBoxScreen()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.call),
-                title: Text("Keypad"),
+                leading: Icon(
+                  Icons.call,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Keypad",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.pop(context);
                 },
               ),
               ListTile(
-                leading: Icon(Icons.call_missed),
-                title: Text("Recent"),
+                leading: Icon(
+                  Icons.call_missed,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Recent",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(
                       context, SlideRightRoute(page: SearchContacts()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.person),
-                title: Text("Contacts"),
+                leading: Icon(
+                  Icons.person,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Contacts",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(context, SlideRightRoute(page: Contacts()));
                 },
               ),
               Divider(
                 thickness: 3,
+                color: Theme.of(context).canvasColor,
               ),
               ListTile(
-                leading: Icon(Icons.settings),
-                title: Text("Settings"),
+                leading: Icon(
+                  Icons.settings,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Settings",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(context, SlideRightRoute(page: Settings()));
                 },
               ),
               ListTile(
-                leading: Icon(Icons.message),
-                title: Text("Send Feedback"),
+                leading: Icon(
+                  Icons.message,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Send Feedback",
+                  style: textStyle(context),
+                ),
                 onTap: () {
                   Navigator.push(context, SlideRightRoute(page: Settings()));
                 },
@@ -281,4 +336,8 @@ class _DialScreenState extends State<DialScreen> {
       ),
     );
   }
+}
+
+textStyle(BuildContext context) {
+  return TextStyle(color: Theme.of(context).canvasColor, fontSize: 20);
 }

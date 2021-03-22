@@ -52,7 +52,7 @@ class _CallScreenState extends State<CallScreen> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Colors.orange,
+      backgroundColor: Theme.of(context).accentColor,
       body: Column(
         children: [
           SizedBox(
@@ -61,7 +61,8 @@ class _CallScreenState extends State<CallScreen> {
           Center(
             child: Text(
               "+92312154684",
-              style: TextStyle(fontSize: width * 0.08, color: Colors.white),
+              style: TextStyle(
+                  fontSize: width * 0.08, color: Theme.of(context).canvasColor),
             ),
           ),
           SizedBox(
@@ -70,7 +71,10 @@ class _CallScreenState extends State<CallScreen> {
           Center(
             child: Text(
               "Calling",
-              style: TextStyle(fontSize: width * 0.05, color: Colors.white),
+              style: TextStyle(
+                fontSize: width * 0.05,
+                color: Theme.of(context).canvasColor,
+              ),
             ),
           ),
           SizedBox(
@@ -97,7 +101,7 @@ class _CallScreenState extends State<CallScreen> {
                             });
                           }
                         },
-                        color: Colors.grey,
+                        color: Theme.of(context).canvasColor,
                         textColor: Colors.white,
                         child: Icon(
                           Icons.volume_up,
@@ -123,7 +127,7 @@ class _CallScreenState extends State<CallScreen> {
                             });
                           }
                         },
-                        color: Colors.grey,
+                        color: Theme.of(context).canvasColor,
                         textColor: Colors.white,
                         child: Icon(
                           Icons.volume_off,
@@ -139,7 +143,7 @@ class _CallScreenState extends State<CallScreen> {
                   elevation: 0,
                   onLongPress: () {},
                   onPressed: () {},
-                  color: Colors.grey,
+                  color: Theme.of(context).canvasColor,
                   textColor: Colors.white,
                   child: Icon(
                     Icons.dialpad,
@@ -166,7 +170,7 @@ class _CallScreenState extends State<CallScreen> {
                             });
                           }
                         },
-                        color: Colors.grey,
+                        color: Theme.of(context).canvasColor,
                         textColor: Colors.white,
                         child: Icon(
                           Icons.mic,
@@ -215,7 +219,7 @@ class _CallScreenState extends State<CallScreen> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              color: Colors.red,
+              color: Theme.of(context).cardColor,
               textColor: Colors.white,
               child: Icon(
                 Icons.call_end,
