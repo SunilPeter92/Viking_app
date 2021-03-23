@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Ui%20Screen/DialScreen.dart';
 
 import '../Widgets/MyButtonRaised.dart';
 import '../Ui Screen/AddAddress.dart';
@@ -18,6 +19,7 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -25,7 +27,10 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
             Center(
               child: Text(
                 "Step 1: Enter detail",
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(height: height * 0.02),
@@ -33,7 +38,12 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
               padding: const EdgeInsets.only(left: 5),
               child: Row(
                 children: [
-                  Text("First Name"),
+                  Text(
+                    "First Name",
+                    style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -52,7 +62,10 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
               padding: const EdgeInsets.only(left: 5, top: 5),
               child: Row(
                 children: [
-                  Text("Last Name"),
+                  Text("Last Name",
+                      style: TextStyle(
+                        color: Theme.of(context).canvasColor,
+                      )),
                 ],
               ),
             ),
@@ -71,7 +84,10 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
               padding: const EdgeInsets.only(left: 5, top: 5),
               child: Row(
                 children: [
-                  Text("Nationality"),
+                  Text("Nationality",
+                      style: TextStyle(
+                        color: Theme.of(context).canvasColor,
+                      )),
                 ],
               ),
             ),
@@ -90,7 +106,10 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
               padding: const EdgeInsets.only(left: 5, top: 5),
               child: Row(
                 children: [
-                  Text("Address "),
+                  Text("Address ",
+                      style: TextStyle(
+                        color: Theme.of(context).canvasColor,
+                      )),
                 ],
               ),
             ),
@@ -99,8 +118,14 @@ class _CreateIndividualProfileState extends State<CreateIndividualProfile> {
               onTap: () {
                 Navigator.push(context, SlideRightRoute(page: AddAddress()));
               },
-              leading: Text("Not Selected"),
-              trailing: Icon(Icons.arrow_forward_ios_outlined),
+              leading: Text("Not Selected",
+                  style: TextStyle(
+                    color: Theme.of(context).canvasColor,
+                  )),
+              trailing: Icon(
+                Icons.arrow_forward_ios_outlined,
+                color: Theme.of(context).cardColor,
+              ),
             ),
             Center(
               child: MyButtonRaised(

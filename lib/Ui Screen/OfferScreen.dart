@@ -23,13 +23,15 @@ class _OfferScreenState extends State<OfferScreen> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
               child: Text(
             "Get " + widget.number,
-            style: TextStyle(color: Colors.black, fontSize: width * 0.055),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.055),
           )),
           SizedBox(
             height: 5,
@@ -37,7 +39,8 @@ class _OfferScreenState extends State<OfferScreen> {
           Center(
               child: Text(
             widget.countryname,
-            style: TextStyle(color: Colors.grey, fontSize: width * 0.04),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.04),
           )),
           SizedBox(
             height: height * 0.1,
@@ -46,12 +49,14 @@ class _OfferScreenState extends State<OfferScreen> {
           Center(
               child: Text(
             "Get a Limited Timer offer. Cancel.",
-            style: TextStyle(color: Colors.black, fontSize: width * 0.045),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.045),
           )),
           Center(
               child: Text(
             "anytime.",
-            style: TextStyle(color: Colors.black, fontSize: width * 0.045),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.045),
           )),
           SizedBox(
             height: height * 0.02,
@@ -84,7 +89,8 @@ class _OfferScreenState extends State<OfferScreen> {
             child: Center(
                 child: Text(
               "No thanks, I prefer to use credtis",
-              style: TextStyle(color: Colors.orange, fontSize: width * 0.040),
+              style: TextStyle(
+                  color: Theme.of(context).cardColor, fontSize: width * 0.033),
             )),
           ),
           SizedBox(
@@ -94,17 +100,20 @@ class _OfferScreenState extends State<OfferScreen> {
           Center(
               child: Text(
             "Auto renews monthly, Autho renews within 24 hours before",
-            style: TextStyle(color: Colors.grey, fontSize: width * 0.030),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.033),
           )),
           Center(
               child: Text(
             "subscriptions Settings. Payment will be chaged to your",
-            style: TextStyle(color: Colors.grey, fontSize: width * 0.030),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.033),
           )),
           Center(
               child: Text(
             "Google Play account upon confirmation",
-            style: TextStyle(color: Colors.grey, fontSize: width * 0.030),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.033),
           )),
           SizedBox(
             height: height * 0.01,
@@ -112,7 +121,8 @@ class _OfferScreenState extends State<OfferScreen> {
           Center(
               child: Text(
             "Terms | Privacy",
-            style: TextStyle(color: Colors.orange, fontSize: width * 0.030),
+            style: TextStyle(
+                color: Theme.of(context).canvasColor, fontSize: width * 0.033),
           )),
         ],
       ),

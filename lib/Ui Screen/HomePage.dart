@@ -21,6 +21,7 @@ class _HomeState extends State<Home> {
     height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.07),
@@ -33,7 +34,7 @@ class _HomeState extends State<Home> {
                 IconButton(
                   icon: Icon(
                     Icons.settings,
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                   ),
                   onPressed: () {
                     Navigator.push(context, SlideRightRoute(page: Settings()));
@@ -47,6 +48,7 @@ class _HomeState extends State<Home> {
                     "Phone Numbers",
                     style: TextStyle(
                       fontSize: width * 0.05,
+                      color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -105,7 +107,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.all(Radius.circular(25.0) //
                         ),
                   ),
@@ -119,9 +121,9 @@ class _HomeState extends State<Home> {
                   Text(
                     "Your Balance",
                     style: TextStyle(
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: width * 0.05,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).canvasColor),
                   ),
                 ],
               ),
@@ -155,9 +157,9 @@ class _HomeState extends State<Home> {
                   Text(
                     "More",
                     style: TextStyle(
-                      fontSize: width * 0.05,
-                      fontWeight: FontWeight.bold,
-                    ),
+                        fontSize: width * 0.05,
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).canvasColor),
                   ),
                 ],
               ),
@@ -173,7 +175,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Icon(
                                 Icons.help_outline_outlined,
-                                color: Colors.green,
+                                color: Colors.white,
                                 size: width * 0.09,
                               ),
                             ],
@@ -187,7 +189,8 @@ class _HomeState extends State<Home> {
                               child: Text(
                                 "Get Help",
                                 style: TextStyle(
-                                    fontSize: width * 0.04, color: Colors.grey),
+                                    fontSize: width * 0.04,
+                                    color: Colors.white),
                               ),
                             ),
                           ],
@@ -197,7 +200,7 @@ class _HomeState extends State<Home> {
                     height: height * 0.15,
                     width: width / 2.5,
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.all(Radius.circular(
                               15.0) //                 <--- border radius here
                           ),
@@ -213,7 +216,7 @@ class _HomeState extends State<Home> {
                             children: [
                               Icon(
                                 Icons.lock_outline,
-                                color: Colors.green,
+                                color: Colors.white,
                                 size: width * 0.09,
                               ),
                             ],
@@ -227,7 +230,8 @@ class _HomeState extends State<Home> {
                               child: Text(
                                 "Install VPN Vault",
                                 style: TextStyle(
-                                    fontSize: width * 0.04, color: Colors.grey),
+                                    fontSize: width * 0.04,
+                                    color: Colors.white),
                               ),
                             ),
                           ],
@@ -237,7 +241,7 @@ class _HomeState extends State<Home> {
                     height: height * 0.15,
                     width: width / 2.5,
                     decoration: BoxDecoration(
-                      color: Colors.grey[100],
+                      color: Theme.of(context).cardColor,
                       borderRadius: BorderRadius.all(Radius.circular(
                               15.0) //                 <--- border radius here
                           ),

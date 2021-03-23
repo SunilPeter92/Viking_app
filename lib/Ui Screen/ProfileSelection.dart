@@ -16,7 +16,9 @@ class _ProfileSlectionState extends State<ProfileSlection> {
     height = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         leading: BackButton(
           color: Colors.white,
         ),
@@ -30,33 +32,51 @@ class _ProfileSlectionState extends State<ProfileSlection> {
               child: Center(
                 child: Text(
                   "Step 1: Create new profile",
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ),
             Card(
-                color: Colors.grey[200],
+                margin: EdgeInsets.only(top: 7, bottom: 7, right: 10, left: 10),
+                color: Theme.of(context).cardColor,
                 child: ListTile(
                   onTap: () {
                     Navigator.push(context,
                         SlideRightRoute(page: CreateIndividualProfile()));
                   },
-                  leading: Text("I am an individual entity"),
+                  leading: Text(
+                    "I am an individual entity",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
+                  ),
                   trailing: Icon(
                     Icons.arrow_forward_ios_outlined,
+                    color: Colors.white,
+                    size: 15,
                   ),
                 )),
             Card(
-                color: Colors.grey[200],
+                margin: EdgeInsets.only(top: 7, bottom: 7, right: 10, left: 10),
+                color: Theme.of(context).cardColor,
                 child: ListTile(
                   onTap: () {
                     Navigator.push(context,
                         SlideRightRoute(page: CreateBussinessProfile()));
                   },
-                  leading: Text("I am an business entity"),
-                  trailing: Icon(
-                    Icons.arrow_forward_ios_outlined,
+                  leading: Text(
+                    "I am an business entity",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                    ),
                   ),
+                  trailing: Icon(Icons.arrow_forward_ios_outlined,
+                      size: 15, color: Colors.white),
                 )),
           ],
         ),

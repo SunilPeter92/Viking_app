@@ -329,6 +329,56 @@ class _DialScreenState extends State<DialScreen> {
                 onTap: () {
                   Navigator.push(context, SlideRightRoute(page: Settings()));
                 },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.contact_support,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Support",
+                  style: textStyle(context),
+                ),
+                onTap: () {
+                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.info,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "Information",
+                  style: textStyle(context),
+                ),
+                onTap: () {
+                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                },
+              ),
+              ListTile(
+                leading: Icon(
+                  Icons.exit_to_app_outlined,
+                  size: 25,
+                  color: Theme.of(context).canvasColor,
+                ),
+                title: Text(
+                  "EPLGROUP",
+                  style: textStyle(context),
+                ),
+                onTap: () {
+                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  footText(context, 'Voxbone'),
+                  footText(context, 'Support'),
+                  footText(context, 'Legal'),
+                ],
               )
             ],
           ),
@@ -340,4 +390,15 @@ class _DialScreenState extends State<DialScreen> {
 
 textStyle(BuildContext context) {
   return TextStyle(color: Theme.of(context).canvasColor, fontSize: 20);
+}
+
+footText(BuildContext context, String text) {
+  return Container(
+      margin: EdgeInsets.only(right: 10, left: 10),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Theme.of(context).cardColor,
+        ),
+      ));
 }

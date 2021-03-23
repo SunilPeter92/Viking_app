@@ -24,6 +24,12 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
       body: ListView(
         children: [
           Card(
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 15,
+              right: 15,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -42,11 +48,17 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 30,
+                size: 25,
               ),
             ),
           ),
           Card(
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 15,
+              right: 15,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -65,11 +77,17 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 30,
+                size: 25,
               ),
             ),
           ),
           Card(
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 15,
+              right: 15,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -88,17 +106,23 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 30,
+                size: 25,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 15,
+              right: 15,
+            ),
             child: ListTile(
               leading: Text(
                 "334",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -110,8 +134,8 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
-                size: 30,
+                color: Theme.of(context).cardColor,
+                size: 25,
               ),
             ),
           ),

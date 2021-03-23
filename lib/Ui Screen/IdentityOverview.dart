@@ -15,6 +15,7 @@ class _IdentityOverViewState extends State<IdentityOverView> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.05),
         child: ListView(
@@ -25,32 +26,41 @@ class _IdentityOverViewState extends State<IdentityOverView> {
             Center(
               child: Text("Identity Verification ",
                   style: TextStyle(
-                      fontSize: width * 0.060, fontWeight: FontWeight.bold)),
+                      color: Colors.white,
+                      fontSize: width * 0.060,
+                      fontWeight: FontWeight.bold)),
             ),
             SizedBox(
               height: height * 0.06,
             ),
             Text("1. Enter details ",
                 style: TextStyle(
-                    fontSize: width * 0.060, fontWeight: FontWeight.bold)),
+                    color: Theme.of(context).canvasColor,
+                    fontSize: width * 0.060,
+                    fontWeight: FontWeight.bold)),
             SizedBox(
               height: height * 0.02,
             ),
             Text("2. Upload photos of documents ",
                 style: TextStyle(
-                    fontSize: width * 0.060, fontWeight: FontWeight.bold)),
+                    color: Theme.of(context).canvasColor,
+                    fontSize: width * 0.060,
+                    fontWeight: FontWeight.bold)),
             SizedBox(
               height: height * 0.02,
             ),
             Text("3. Submit for review ",
                 style: TextStyle(
-                    fontSize: width * 0.060, fontWeight: FontWeight.bold)),
+                    color: Theme.of(context).canvasColor,
+                    fontSize: width * 0.060,
+                    fontWeight: FontWeight.bold)),
             SizedBox(
               height: height * 0.05,
             ),
             Text(
                 "Before you start, you man want to prepare documents like local ID, driver's license etc ",
                 style: TextStyle(
+                  color: Theme.of(context).canvasColor,
                   fontSize: width * 0.050,
                 )),
             SizedBox(
@@ -59,6 +69,7 @@ class _IdentityOverViewState extends State<IdentityOverView> {
             Text(
                 "After submission, your info will be reviewed within 12-24 hours. ",
                 style: TextStyle(
+                  color: Theme.of(context).canvasColor,
                   fontSize: width * 0.050,
                 )),
             SizedBox(
@@ -66,6 +77,7 @@ class _IdentityOverViewState extends State<IdentityOverView> {
             ),
             Text("Estimated time to complete: 5-10 mins ",
                 style: TextStyle(
+                  color: Theme.of(context).canvasColor,
                   fontSize: width * 0.050,
                 )),
             SizedBox(

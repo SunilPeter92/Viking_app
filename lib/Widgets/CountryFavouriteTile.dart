@@ -14,8 +14,9 @@ class CountryFavouriteTile extends StatelessWidget {
     double height = MediaQuery.of(context).size.width;
 
     return Card(
+      color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(top: 10, bottom: 10),
+        padding: EdgeInsets.only(top: 10, bottom: 10, right: 25, left: 25),
         child: ListTile(
             onTap: onTap,
             title: Text(
@@ -42,7 +43,7 @@ class CountryFavouriteTile extends StatelessWidget {
               trailing,
               style: TextStyle(
                 fontSize: width * 0.03,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
               ),
             )),
       ),

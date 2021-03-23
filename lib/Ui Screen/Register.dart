@@ -88,7 +88,12 @@ class _HomePageState extends State<RegisterPage> {
                                 color: Theme.of(context).primaryColor,
                                 fontWeight: FontWeight.bold),
                           ),
-                          Text(' and '),
+                          Text(
+                            ' and ',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold),
+                          ),
                         ],
                       ),
                       Text(

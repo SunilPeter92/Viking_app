@@ -15,6 +15,7 @@ class _IdentityVerificationState extends State<IdentityVerification> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: width * 0.05),
         child: Column(
@@ -25,17 +26,21 @@ class _IdentityVerificationState extends State<IdentityVerification> {
             Center(
               child: Text("Identity Verification ",
                   style: TextStyle(
-                      fontSize: width * 0.060, fontWeight: FontWeight.bold)),
+                      // color: Theme.of(context).canvasColor,
+                      color: Colors.white,
+                      fontSize: width * 0.060,
+                      fontWeight: FontWeight.bold)),
             ),
             SizedBox(
               height: width * 0.1,
             ),
             Text("Some countries require identity verification by law.",
                 style: TextStyle(
-                  fontSize: width * 0.045,
-                )),
+                    fontSize: width * 0.045,
+                    color: Theme.of(context).canvasColor)),
             Text("Some countries require identity verification by law.",
                 style: TextStyle(
+                  color: Theme.of(context).canvasColor,
                   fontSize: width * 0.045,
                 )),
             SizedBox(
@@ -45,11 +50,10 @@ class _IdentityVerificationState extends State<IdentityVerification> {
               children: [
                 Text("See: ",
                     style: TextStyle(
-                      fontSize: width * 0.045,
-                    )),
+                        fontSize: width * 0.045, color: Colors.white)),
                 Text("Regulatory Compliance Privacy and FAQ",
                     style: TextStyle(
-                      color: Colors.orange,
+                      color: Theme.of(context).cardColor,
                       fontSize: width * 0.045,
                     )),
               ],

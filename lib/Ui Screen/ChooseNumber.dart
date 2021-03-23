@@ -14,7 +14,9 @@ class _ChooseNumberState extends State<ChooseNumber> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         title: Text("Choose Number", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -23,11 +25,19 @@ class _ChooseNumberState extends State<ChooseNumber> {
       body: ListView(
         children: [
           Card(
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 20,
+              right: 20,
+            ),
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "+1 205-548-4393",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Theme.of(context).canvasColor,
+                  fontSize: 18,
                 ),
               ),
               onTap: () {
@@ -41,18 +51,24 @@ class _ChooseNumberState extends State<ChooseNumber> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
-                size: 30,
+                color: Theme.of(context).cardColor,
+                size: 25,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
+            margin: EdgeInsets.only(
+              top: 10,
+              bottom: 10,
+              left: 20,
+              right: 20,
+            ),
             child: ListTile(
               leading: Text(
                 "+1 205-548-4393",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 18),
               ),
               onTap: () {
                 Navigator.push(
@@ -60,8 +76,8 @@ class _ChooseNumberState extends State<ChooseNumber> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
-                size: 30,
+                color: Theme.of(context).cardColor,
+                size: 25,
               ),
             ),
           ),

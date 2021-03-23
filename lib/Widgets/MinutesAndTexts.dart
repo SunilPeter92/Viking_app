@@ -22,7 +22,7 @@ class MinutesAndTexts extends StatelessWidget {
                   padding: EdgeInsets.all(8.0),
                   child: Container(
                     decoration: new BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.orange,
                       borderRadius: BorderRadius.all(Radius.circular(25.0)),
                     ),
                     width: width * 0.025,
@@ -39,13 +39,14 @@ class MinutesAndTexts extends StatelessWidget {
                   child: Text(
                     this.minutes,
                     style:
-                        TextStyle(fontSize: width * 0.035, color: Colors.grey),
+                        TextStyle(fontSize: width * 0.035, color: Colors.white),
                   ),
                 ),
                 SizedBox(height: height * 0.01),
                 Text(
                   "minutes",
-                  style: TextStyle(fontSize: width * 0.035, color: Colors.grey),
+                  style:
+                      TextStyle(fontSize: width * 0.035, color: Colors.white),
                 ),
               ],
             ),
@@ -72,13 +73,14 @@ class MinutesAndTexts extends StatelessWidget {
                   child: Text(
                     this.text,
                     style:
-                        TextStyle(fontSize: width * 0.035, color: Colors.grey),
+                        TextStyle(fontSize: width * 0.035, color: Colors.white),
                   ),
                 ),
                 SizedBox(height: height * 0.01),
                 Text(
                   "texts  ",
-                  style: TextStyle(fontSize: width * 0.035, color: Colors.grey),
+                  style:
+                      TextStyle(fontSize: width * 0.035, color: Colors.white),
                 ),
               ],
             ),
@@ -89,7 +91,7 @@ class MinutesAndTexts extends StatelessWidget {
                   padding: EdgeInsets.only(left: width * 0.05),
                   child: Icon(
                     Icons.add_circle_outline_outlined,
-                    color: Colors.green,
+                    color: Colors.white,
                   ),
                 )
               ],
@@ -97,7 +99,7 @@ class MinutesAndTexts extends StatelessWidget {
           ],
         ),
         decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.all(
               Radius.circular(15.0) //                 <--- border radius here
               ),

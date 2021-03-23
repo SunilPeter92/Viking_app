@@ -33,6 +33,7 @@ class _RenewPhoneState extends State<RenewPhone> {
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         title: Text("Phone Number", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -79,7 +80,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
                                 color: Theme.of(context).primaryColor)),
-                        color: Colors.orange,
+                        color: Theme.of(context).cardColor,
                         child: Text(
                           "Extend",
                           style: TextStyle(
@@ -283,7 +284,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                                       color: Colors.grey[500])),
                               Icon(
                                 Icons.arrow_forward,
-                                color: Colors.orange,
+                                color: Theme.of(context).cardColor,
                                 size: screenwidth * 0.09,
                               ),
                             ],
@@ -333,7 +334,7 @@ class _RenewPhoneState extends State<RenewPhone> {
                                   fontSize: screenwidth * 0.035,
                                   color: Colors.grey[500])),
                           FlutterSwitch(
-                            activeColor: Colors.orange,
+                            activeColor: Theme.of(context).cardColor,
                             width: screenwidth * 0.15,
                             height: screenheight * 0.040,
                             valueFontSize: 0,

@@ -17,6 +17,7 @@ class MyButtonBordered extends StatelessWidget {
           title,
           style: TextStyle(fontSize: 18, color: Theme.of(context).primaryColor),
         ),
+
         color: Colors.white,
       ),
     );

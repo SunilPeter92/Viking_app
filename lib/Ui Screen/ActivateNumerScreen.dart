@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:viking/Widgets/MyButtonRaised.dart';
+import 'package:viking/const_font/constFont.dart';
 
 import '../Animation/Slider.dart';
 import 'HomePage.dart';
@@ -32,15 +34,24 @@ class _ActivateNumberState extends State<ActivateNumber> {
                         fontWeight: FontWeight.bold,
                         fontSize: width * 0.065,
                         color: Theme.of(context).canvasColor),
+                    //  GoogleFonts.comfortaa(
+                    //     textStyle: TextStyle(
+                    //         fontWeight: FontWeight.bold,
+                    //         fontSize: width * 0.065,
+                    //         color: Theme.of(context).canvasColor)
+
+                    //         ),
                   ),
                 ),
                 Center(
                   child: Text(
                     "NUMBER",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: width * 0.065,
-                        color: Theme.of(context).canvasColor),
+                    style: TextStylee(
+                      TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: width * 0.065,
+                          color: Theme.of(context).canvasColor),
+                    ),
                   ),
                 ),
                 SizedBox(height: height * 0.05),
@@ -53,7 +64,7 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     Text(
                       "Cheap international calls & messages",
                       style: TextStyle(
-                          fontSize: width * 0.045,
+                          fontSize: width * 0.040,
                           color: Theme.of(context).canvasColor),
                     ),
                   ],
@@ -67,9 +78,11 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     ),
                     Text(
                       "Multiple numbers & flexible Rates",
-                      style: TextStyle(
-                          fontSize: width * 0.045,
-                          color: Theme.of(context).canvasColor),
+                      style: TextStylee(
+                        TextStyle(
+                            fontSize: width * 0.045,
+                            color: Theme.of(context).canvasColor),
+                      ),
                     ),
                   ],
                 ),
@@ -82,9 +95,9 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     ),
                     Text(
                       "And more useful features",
-                      style: TextStyle(
+                      style: TextStylee(TextStyle(
                           fontSize: width * 0.045,
-                          color: Theme.of(context).canvasColor),
+                          color: Theme.of(context).canvasColor)),
                     ),
                   ],
                 ),
@@ -96,6 +109,7 @@ class _ActivateNumberState extends State<ActivateNumber> {
                       "3 days free trial ",
                       style: TextStyle(
                           fontSize: width * 0.040,
+                          fontFamily: 'Comfortaa',
                           color: Theme.of(context).canvasColor),
                     ),
                     Text(

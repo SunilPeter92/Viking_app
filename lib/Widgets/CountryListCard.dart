@@ -26,6 +26,7 @@ class CountryCard extends StatelessWidget {
       onTap: function,
       child: Card(
         color: Colors.white,
+        margin: EdgeInsets.only(left: 17, right: 17, top: 7, bottom: 7),
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: Row(
@@ -180,12 +181,12 @@ class CountryCard extends StatelessWidget {
                 children: [
                   Text(
                     this.countrycode + " ",
-                    style: TextStyle(fontSize: width * 0.060),
+                    style: TextStyle(fontSize: width * 0.050),
                   ),
                   Icon(
                     Icons.arrow_forward,
                     color: Theme.of(context).cardColor,
-                    size: width * 0.1,
+                    size: 22,
                   ),
                 ],
               )

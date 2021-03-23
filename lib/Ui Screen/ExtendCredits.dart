@@ -13,7 +13,9 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         title: Text("Phone Number ", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -27,7 +29,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
               child: Card(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 child: Container(
                   width: screenwidth,
                   height: screenheight * 0.15,
@@ -71,7 +73,8 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                               color: Colors.white,
                               child: Text(
                                 "Get More",
-                                style: TextStyle(color: Colors.orange),
+                                style: TextStyle(
+                                    color: Theme.of(context).cardColor),
                               ),
                               onPressed: () {
                                 Navigator.push(context,
@@ -96,7 +99,8 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                   child: Text(
                     "RENEW FOR 1 MONTH",
                     style: TextStyle(
-                        color: Colors.grey, fontSize: screenwidth * 0.055),
+                        color: Theme.of(context).canvasColor,
+                        fontSize: screenwidth * 0.055),
                   ),
                 ),
               ],
@@ -117,14 +121,15 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                           Text(
                             "20",
                             style: TextStyle(
-                                fontSize: screenwidth * 0.055,
-                                color: Colors.grey),
+                              fontSize: screenwidth * 0.055,
+                              color: Colors.white,
+                            ),
                           ),
                           Text(
                             "Texts",
                             style: TextStyle(
                                 fontSize: screenwidth * 0.035,
-                                color: Colors.grey),
+                                color: Colors.white),
                           ),
                           Container(
                             height: 9,
@@ -145,7 +150,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                             "3000" + " credits\n      needed",
                             style: TextStyle(
                                 fontSize: screenwidth * 0.035,
-                                color: Colors.grey),
+                                color: Colors.white),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
@@ -156,14 +161,14 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(12),
                                       side: BorderSide(
-                                          color:
-                                              Theme.of(context).primaryColor)),
-                                  color: Colors.orange,
+                                          color: Theme.of(context).cardColor)),
+                                  color: Colors.white,
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                        fontSize: screenwidth * 0.05,
-                                        color: Colors.white),
+                                      fontSize: screenwidth * 0.05,
+                                      color: Theme.of(context).cardColor,
+                                    ),
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -181,7 +186,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                 width: screenwidth * 0.85,
                 height: screenheight * 0.15,
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(15.0),
                       topRight: Radius.circular(15.0)),
@@ -212,13 +217,13 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                 "20",
                                 style: TextStyle(
                                     fontSize: screenwidth * 0.055,
-                                    color: Colors.grey),
+                                    color: Colors.white),
                               ),
                               Text(
                                 "Texts",
                                 style: TextStyle(
                                     fontSize: screenwidth * 0.035,
-                                    color: Colors.grey),
+                                    color: Colors.white),
                               ),
                               Container(
                                 height: 9,
@@ -240,13 +245,13 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                   "20",
                                   style: TextStyle(
                                       fontSize: screenwidth * 0.055,
-                                      color: Colors.grey),
+                                      color: Colors.white),
                                 ),
                                 Text(
                                   "Texts",
                                   style: TextStyle(
                                       fontSize: screenwidth * 0.035,
-                                      color: Colors.grey),
+                                      color: Colors.white),
                                 ),
                                 Container(
                                   height: 9,
@@ -267,7 +272,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                             "3000" + " credits\n      needed",
                             style: TextStyle(
                                 fontSize: screenwidth * 0.035,
-                                color: Colors.grey),
+                                color: Colors.white),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
@@ -280,12 +285,13 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                       side: BorderSide(
                                           color:
                                               Theme.of(context).primaryColor)),
-                                  color: Colors.orange,
+                                  color: Colors.white,
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                        fontSize: screenwidth * 0.05,
-                                        color: Colors.white),
+                                      fontSize: screenwidth * 0.05,
+                                      color: Theme.of(context).cardColor,
+                                    ),
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -303,7 +309,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                 width: screenwidth * 0.85,
                 height: screenheight * 0.15,
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.only(
                       bottomRight: Radius.circular(15.0),
                       bottomLeft: Radius.circular(15.0)),
@@ -320,7 +326,8 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                   child: Text(
                     "RENEWS FOR 3 MONTH",
                     style: TextStyle(
-                        color: Colors.grey, fontSize: screenwidth * 0.055),
+                        color: Theme.of(context).canvasColor,
+                        fontSize: screenwidth * 0.055),
                   ),
                 ),
               ],
@@ -343,14 +350,16 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                               Text(
                                 "50",
                                 style: TextStyle(
-                                    fontSize: screenwidth * 0.055,
-                                    color: Colors.grey),
+                                  fontSize: screenwidth * 0.055,
+                                  color: Colors.white,
+                                ),
                               ),
                               Text(
                                 "Texts",
                                 style: TextStyle(
-                                    fontSize: screenwidth * 0.035,
-                                    color: Colors.grey),
+                                  fontSize: screenwidth * 0.035,
+                                  color: Colors.white,
+                                ),
                               ),
                               Container(
                                 height: 9,
@@ -371,14 +380,15 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                 Text(
                                   "50",
                                   style: TextStyle(
-                                      fontSize: screenwidth * 0.055,
-                                      color: Colors.grey),
+                                    fontSize: screenwidth * 0.055,
+                                    color: Colors.white,
+                                  ),
                                 ),
                                 Text(
                                   "Texts",
                                   style: TextStyle(
                                       fontSize: screenwidth * 0.035,
-                                      color: Colors.grey),
+                                      color: Colors.white),
                                 ),
                                 Container(
                                   height: 9,
@@ -398,8 +408,9 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                           Text(
                             "3000" + " credits\n      needed",
                             style: TextStyle(
-                                fontSize: screenwidth * 0.035,
-                                color: Colors.grey),
+                              fontSize: screenwidth * 0.035,
+                              color: Colors.white,
+                            ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
@@ -412,12 +423,13 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                       side: BorderSide(
                                           color:
                                               Theme.of(context).primaryColor)),
-                                  color: Colors.orange,
+                                  color: Colors.white,
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                        fontSize: screenwidth * 0.05,
-                                        color: Colors.white),
+                                      fontSize: screenwidth * 0.05,
+                                      color: Theme.of(context).cardColor,
+                                    ),
                                   ),
                                   onPressed: () {
                                     Navigator.push(
@@ -435,7 +447,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                 width: screenwidth * 0.85,
                 height: screenheight * 0.15,
                 decoration: BoxDecoration(
-                  color: Colors.grey[100],
+                  color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),
                 ),
               ),
