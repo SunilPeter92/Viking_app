@@ -100,7 +100,9 @@ class _SelectStateState extends State<SelectState> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         title: Text("Choose State", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -117,12 +119,12 @@ class _SelectStateState extends State<SelectState> {
             isidrequired: widget.isIdRequired,
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "Alabama (AL)",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -134,18 +136,18 @@ class _SelectStateState extends State<SelectState> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "Alaska (AK)",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -157,18 +159,18 @@ class _SelectStateState extends State<SelectState> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "Arizona (AZ)",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -180,18 +182,18 @@ class _SelectStateState extends State<SelectState> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "California (CA)",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -203,18 +205,18 @@ class _SelectStateState extends State<SelectState> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "Florida (FL)",
                 style: TextStyle(
-                  color: Colors.grey,
-                ),
+                    color: Theme.of(context).canvasColor, fontSize: 20),
               ),
               onTap: () {
                 Navigator.push(
@@ -226,7 +228,7 @@ class _SelectStateState extends State<SelectState> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).cardColor,
                 size: 30,
               ),
             ),
