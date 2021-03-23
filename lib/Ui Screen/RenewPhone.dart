@@ -31,6 +31,7 @@ class _RenewPhoneState extends State<RenewPhone> {
     screenwidth = MediaQuery.of(context).size.width;
     screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         title: Text("Phone Number", style: TextStyle(color: Colors.white)),
         leading: BackButton(

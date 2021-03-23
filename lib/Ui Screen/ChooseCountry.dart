@@ -152,8 +152,10 @@ class _ChooseCountryState extends State<ChooseCountry> {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       key: scaffoldState,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);

@@ -18,6 +18,7 @@ class _HomePageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.top]);
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Column(
@@ -63,6 +64,8 @@ class _HomePageState extends State<RegisterPage> {
                 children: [
                   Checkbox(
                     value: check,
+                    checkColor: Colors.white,
+                    activeColor: Theme.of(context).canvasColor,
                     onChanged: (bool value) {
                       setState(() {
                         check = value;
@@ -74,7 +77,11 @@ class _HomePageState extends State<RegisterPage> {
                     children: [
                       Row(
                         children: [
-                          Text('I have read and agree to the '),
+                          Text(
+                            'I have read and agree to the ',
+                            style:
+                                TextStyle(color: Theme.of(context).canvasColor),
+                          ),
                           Text(
                             'Privacy Policy',
                             style: TextStyle(
@@ -99,7 +106,10 @@ class _HomePageState extends State<RegisterPage> {
               onPressed: () {},
               title: "Sign Up",
             ),
-            Text('Or Choose one of the option below'),
+            Text(
+              'Or Choose one of the option below',
+              style: TextStyle(color: Theme.of(context).canvasColor),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -121,7 +131,10 @@ class _HomePageState extends State<RegisterPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Already Have an Account? '),
+                Text(
+                  'Already Have an Account? ',
+                  style: TextStyle(color: Theme.of(context).canvasColor),
+                ),
                 InkWell(
                   onTap: () {
                     Navigator.push(context, SlideRightRoute(page: LoginPage()));

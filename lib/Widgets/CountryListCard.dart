@@ -25,6 +25,7 @@ class CountryCard extends StatelessWidget {
     return GestureDetector(
       onTap: function,
       child: Card(
+        color: Colors.white,
         child: Container(
           width: MediaQuery.of(context).size.width,
           child: Row(
@@ -51,7 +52,8 @@ class CountryCard extends StatelessWidget {
                     children: [
                       Text(
                         this.countryname,
-                        style: TextStyle(fontSize: width * 0.055),
+                        style: TextStyle(
+                            fontSize: width * 0.055, color: Colors.black),
                       ),
                       Container(
                         child: Row(
