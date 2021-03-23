@@ -184,7 +184,7 @@ class CountryCard extends StatelessWidget {
                   ),
                   Icon(
                     Icons.arrow_forward,
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                     size: width * 0.1,
                   ),
                 ],
