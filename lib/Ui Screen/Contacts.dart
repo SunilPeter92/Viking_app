@@ -3,6 +3,7 @@ import 'package:viking/Animation/Slider.dart';
 import 'package:viking/Ui%20Screen/DialScreen.dart';
 import 'package:viking/Ui%20Screen/SearchContacts.dart';
 import 'package:viking/Ui Screen/ContactsPage.dart';
+import 'package:contacts_service/contacts_service.dart';
 
 class Contacts extends StatefulWidget {
   @override
@@ -16,18 +17,22 @@ class _ContactsState extends State<Contacts> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          bottom:
-              TabBar(indicatorWeight: 5.0, indicatorColor: Colors.red, tabs: [
-            Tab(
-              child: Text("Contacts", style: TextStyle(color: Colors.white)),
-            ),
-            Tab(
-              child: Text(
-                "Phone Contacts",
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          ]),
+          backgroundColor: Theme.of(context).accentColor,
+          bottom: TabBar(
+              indicatorWeight: 5.0,
+              indicatorColor: Theme.of(context).cardColor,
+              tabs: [
+                Tab(
+                  child:
+                      Text("Contacts", style: TextStyle(color: Colors.white)),
+                ),
+                Tab(
+                  child: Text(
+                    "Phone Contacts",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ]),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -79,7 +84,14 @@ class _ContactsState extends State<Contacts> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () async {
+            try {
+              Contact conatct = await ContactsService.openContactForm();
+              if (conatct != null) {}
+            } on FormOperationException catch (e) {
+              print(e.toString());
+            }
+          },
           child: Icon(
             Icons.add,
             color: Colors.white,

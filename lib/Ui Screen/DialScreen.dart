@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Ui%20Screen/ContactsPage.dart';
 import 'CallScreen.dart';
 import '../Animation/Slider.dart';
 import 'InboxScreen.dart';
@@ -295,7 +296,10 @@ class _DialScreenState extends State<DialScreen> {
                   style: textStyle(context),
                 ),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Contacts()));
+                  Navigator.push(
+                      context,
+                      SlideRightRoute(
+                          page: Contacts())); //conatct krna hai yhan .
                 },
               ),
               Divider(
