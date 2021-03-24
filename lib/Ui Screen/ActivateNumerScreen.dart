@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'package:viking/Widgets/MyButtonRaised.dart';
-import 'package:viking/const_font/constFont.dart';
+//import 'package:viking/const_font/constFont.dart';
 
 import '../Animation/Slider.dart';
 import 'HomePage.dart';
@@ -46,12 +46,10 @@ class _ActivateNumberState extends State<ActivateNumber> {
                 Center(
                   child: Text(
                     "NUMBER",
-                    style: TextStylee(
-                      TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: width * 0.065,
-                          color: Theme.of(context).canvasColor),
-                    ),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: width * 0.065,
+                        color: Theme.of(context).canvasColor),
                   ),
                 ),
                 SizedBox(height: height * 0.05),
@@ -78,11 +76,9 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     ),
                     Text(
                       "Multiple numbers & flexible Rates",
-                      style: TextStylee(
-                        TextStyle(
-                            fontSize: width * 0.045,
-                            color: Theme.of(context).canvasColor),
-                      ),
+                      style: TextStyle(
+                          fontSize: width * 0.045,
+                          color: Theme.of(context).canvasColor),
                     ),
                   ],
                 ),
@@ -95,9 +91,9 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     ),
                     Text(
                       "And more useful features",
-                      style: TextStylee(TextStyle(
+                      style: TextStyle(
                           fontSize: width * 0.045,
-                          color: Theme.of(context).canvasColor)),
+                          color: Theme.of(context).canvasColor),
                     ),
                   ],
                 ),

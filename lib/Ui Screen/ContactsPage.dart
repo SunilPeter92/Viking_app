@@ -100,19 +100,25 @@ class _ContactsPageState extends State<ContactsPage> {
                                   backgroundImage: MemoryImage(contact.avatar),
                                 )
                               : CircleAvatar(
-                                  child: Text(contact.initials()),
+                                  child: Text(
+                                    contact.initials(),
+                                    style: TextStyle(color: Colors.white),
+                                  ),
                                   backgroundColor:
                                       Theme.of(context).accentColor,
                                 ),
-                          title: Text(contact.displayName ?? ''),
+                          title: Text(
+                            contact.displayName ?? '',
+                            style: TextStyle(color: Colors.white),
+                          ),
 
                           //This can be further expanded to showing contacts detail
                           // onPressed().
                         ),
                       ),
-                      Divider(
-                        color: Theme.of(context).cardColor,
-                      )
+                      Divider(color: Colors.white
+                          //Theme.of(context).cardColor,
+                          )
                     ],
                   ),
                 );
@@ -128,6 +134,8 @@ void _popupDialog(BuildContext context) {
       context: context,
       builder: (context) {
         return AlertDialog(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(20.0))),
           title: Text('Alert Dialog !!!'),
           // content: Text('Alert Dialog Body Goes Here  ..'),
           actions: <Widget>[
