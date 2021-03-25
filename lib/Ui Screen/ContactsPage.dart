@@ -71,6 +71,7 @@ class _ContactsPageState extends State<ContactsPage> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     print(height.toString() + 'aa');
 
     print(_contacts.length);
@@ -89,7 +90,7 @@ class _ContactsPageState extends State<ContactsPage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          _popupDialog(context);
+                          _popupDialog(context, height, width);
                         },
                         child: ListTile(
                           contentPadding: const EdgeInsets.symmetric(
@@ -129,33 +130,74 @@ class _ContactsPageState extends State<ContactsPage> {
   }
 }
 
-void _popupDialog(BuildContext context) {
+void _popupDialog(BuildContext context, double height, double width) {
   showDialog(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0))),
-          title: Text('Alert Dialog !!!'),
-          // content: Text('Alert Dialog Body Goes Here  ..'),
-          actions: <Widget>[
-            IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(
-                  Icons.phone,
-                  size: 30,
-                  color: Theme.of(context).cardColor,
-                )),
-            //  child: Text('OK')
-
-            IconButton(
-                onPressed: () => Navigator.of(context).pop(),
-                icon: Icon(
-                  Icons.message,
-                  size: 30,
-                  color: Theme.of(context).cardColor,
-                )),
-          ],
+        return Dialog(
+          child: Container(
+            alignment: Alignment.center,
+            height: height * .4,
+            //  height: 100,
+            width: width - 100,
+            decoration: BoxDecoration(
+              color: Theme.of(context).canvasColor,
+            ),
+            child: Column(
+              // mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Align(
+                    alignment: Alignment.topRight,
+                    child: Icon(
+                      Icons.cancel,
+                      size: 30,
+                      color: Theme.of(context).cardColor,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 120,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.phone,
+                          size: 60,
+                          color: Theme.of(context).cardColor,
+                        ),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: InkWell(
+                        onTap: () {},
+                        child: Icon(
+                          Icons.message,
+                          size: 60,
+                          color: Theme.of(context).cardColor,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
         );
       });
 }
