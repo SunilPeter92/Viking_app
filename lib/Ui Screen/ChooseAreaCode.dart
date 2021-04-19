@@ -93,11 +93,13 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "334",
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: Theme.of(context).canvasColor,
+                  fontSize: 20
                 ),
               ),
               onTap: () {
@@ -110,7 +112,7 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Theme.of(context).canvasColor,
                 size: 30,
               ),
             ),
