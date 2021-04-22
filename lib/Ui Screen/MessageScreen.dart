@@ -13,7 +13,9 @@ class _MessageScreenState extends State<MessageScreen> {
     screenwidth = MediaQuery.of(context).size.width;
     screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         title: Text("Assistant ", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -34,7 +36,7 @@ class _MessageScreenState extends State<MessageScreen> {
               ),
               child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(20),
                       topRight: Radius.circular(20),
@@ -90,7 +92,7 @@ class _MessageScreenState extends State<MessageScreen> {
                 onPressed: () {},
                 icon: Icon(
                   Icons.camera_alt_outlined,
-                  color: Colors.orange,
+                  color: Theme.of(context).cardColor,
                   size: screenwidth * 0.1,
                 ),
               ),
@@ -122,7 +124,7 @@ class _MessageScreenState extends State<MessageScreen> {
               IconButton(
                 icon: Icon(
                   Icons.send,
-                  color: Colors.orange,
+                  color: Theme.of(context).cardColor,
                   size: screenwidth * 0.1,
                 ),
                 onPressed: () {

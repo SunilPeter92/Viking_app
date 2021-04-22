@@ -11,6 +11,7 @@ class _SearchContactsState extends State<SearchContacts> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: screenwidth * 0.1),
         child: Column(
@@ -24,11 +25,13 @@ class _SearchContactsState extends State<SearchContacts> {
                 Text(
                   "Contacts",
                   style: TextStyle(
-                      fontSize: screenwidth * 0.07, color: Colors.orange),
+                      fontSize: screenwidth * 0.07,
+                      color: Theme.of(context).cardColor),
                 ),
                 IconButton(
                   icon: Icon(Icons.add_circle_outline_outlined,
-                      color: Colors.orange, size: screenwidth * 0.09),
+                      color: Theme.of(context).cardColor,
+                      size: screenwidth * 0.09),
                   onPressed: () {},
                 )
               ],
@@ -43,8 +46,9 @@ class _SearchContactsState extends State<SearchContacts> {
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),
                   filled: true,
-                  fillColor: Colors.grey[100],
+                  fillColor: Colors.white,
                   hintText: 'Find Contacts',
+
                   hintStyle: TextStyle(letterSpacing: 2, color: Colors.grey),
 
                   // focusedBorder: InputBorder.none,

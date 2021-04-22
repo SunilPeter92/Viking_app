@@ -16,7 +16,9 @@ class _InternationalRatesState extends State<InternationalRates> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
         leading: BackButton(
           color: Colors.white,
         ),
@@ -40,7 +42,7 @@ class _InternationalRatesState extends State<InternationalRates> {
                         borderRadius: BorderRadius.circular(8),
                         side:
                             BorderSide(color: Theme.of(context).primaryColor)),
-                    color: Colors.orange,
+                    color: Theme.of(context).cardColor,
                     child: Text(
                       "Voice Rates \n Credit/min",
                       style: TextStyle(
@@ -63,11 +65,11 @@ class _InternationalRatesState extends State<InternationalRates> {
                         borderRadius: BorderRadius.circular(8),
                         side:
                             BorderSide(color: Theme.of(context).primaryColor)),
-                    color: Colors.white,
+                    color: Theme.of(context).cardColor,
                     child: Text(
                       "Text Rates \nCredit/SMS",
                       style: TextStyle(
-                          fontSize: screenwidth * 0.05, color: Colors.orange),
+                          fontSize: screenwidth * 0.05, color: Colors.white),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -83,7 +85,7 @@ class _InternationalRatesState extends State<InternationalRates> {
             Center(
               child: Text(
                 "Prices may very depending on the carriers involved ",
-                style: TextStyle(color: Colors.grey[600]),
+                style: TextStyle(color: Theme.of(context).canvasColor),
               ),
             ),
             SizedBox(

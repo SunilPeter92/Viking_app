@@ -119,6 +119,12 @@ class _SelectStateState extends State<SelectState> {
             isidrequired: widget.isIdRequired,
           ),
           Card(
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 10,
+              bottom: 10,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -137,11 +143,21 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
+
                 size: 30,
+
+
               ),
             ),
           ),
           Card(
+
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 10,
+              bottom: 10,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -165,6 +181,12 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
           Card(
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 10,
+              bottom: 10,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -188,6 +210,12 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
           Card(
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 10,
+              bottom: 10,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(
@@ -211,6 +239,12 @@ class _SelectStateState extends State<SelectState> {
             ),
           ),
           Card(
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 15,
+              top: 10,
+              bottom: 10,
+            ),
             color: Colors.white,
             child: ListTile(
               leading: Text(

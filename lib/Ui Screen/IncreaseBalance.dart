@@ -12,6 +12,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         title: Text("Increase Balance", style: TextStyle(color: Colors.white)),
         leading: BackButton(
@@ -32,7 +33,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  color: Colors.orange,
+                  color: Theme.of(context).cardColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -63,7 +64,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                       side: BorderSide(color: Theme.of(context).primaryColor)),
-                  color: Colors.orange[800],
+                  color: Theme.of(context).cardColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -89,8 +90,14 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("Your Credits:0"),
-                Text("Get More"),
+                Text(
+                  "Your Credits:0",
+                  style: TextStyle(color: Colors.white),
+                ),
+                Text(
+                  "Get More",
+                  style: TextStyle(color: Colors.white),
+                ),
               ],
             ),
             SizedBox(
@@ -99,7 +106,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
             Text(
               "Increase weith Credits",
               style: TextStyle(
-                color: Colors.grey,
+                color: Theme.of(context).canvasColor,
                 fontSize: screenwidth * 0.045,
               ),
             ),

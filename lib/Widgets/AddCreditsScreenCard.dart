@@ -22,12 +22,12 @@ class AddCreditsCard extends StatelessWidget {
                 Text(
                   this.texts,
                   style: TextStyle(
-                      fontSize: screenwidth * 0.055, color: Colors.grey),
+                      fontSize: screenwidth * 0.055, color: Colors.white),
                 ),
                 Text(
                   "Texts",
                   style: TextStyle(
-                      fontSize: screenwidth * 0.035, color: Colors.grey),
+                      fontSize: screenwidth * 0.035, color: Colors.white),
                 ),
                 Container(
                   height: 9,
@@ -43,7 +43,7 @@ class AddCreditsCard extends StatelessWidget {
                 Text(
                   this.credits + " credits\n      needed",
                   style: TextStyle(
-                      fontSize: screenwidth * 0.035, color: Colors.grey),
+                      fontSize: screenwidth * 0.035, color: Colors.white),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: screenwidth * 0.02),
@@ -55,12 +55,12 @@ class AddCreditsCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
                                 color: Theme.of(context).primaryColor)),
-                        color: Colors.orange,
+                        color: Colors.white,
                         child: Text(
                           "Add",
                           style: TextStyle(
                               fontSize: screenwidth * 0.05,
-                              color: Colors.white),
+                              color: Theme.of(context).cardColor),
                         ),
                         onPressed: this.onPressed),
                   ),
@@ -72,7 +72,7 @@ class AddCreditsCard extends StatelessWidget {
         width: screenwidth * 0.85,
         height: screenheight * 0.30,
         decoration: BoxDecoration(
-          color: Colors.grey[100],
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.all(Radius.circular(15.0)),
         ),
       ),

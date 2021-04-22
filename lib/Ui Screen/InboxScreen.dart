@@ -27,7 +27,12 @@ class _InBoxScreenState extends State<InBoxScreen> {
         child: ListView(
           children: [
             Card(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+                left: 20,
+              ),
               color: Colors.white,
               child: ListTile(
                 onTap: () {
@@ -55,7 +60,12 @@ class _InBoxScreenState extends State<InBoxScreen> {
               ),
             ),
             Card(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+                left: 20,
+              ),
               color: Colors.white,
               child: ListTile(
                 trailing: Text(
@@ -83,7 +93,12 @@ class _InBoxScreenState extends State<InBoxScreen> {
               ),
             ),
             Card(
-              margin: EdgeInsets.all(10),
+              margin: EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+                left: 20,
+              ),
               color: Colors.white,
               child: ListTile(
                 trailing: Text(
