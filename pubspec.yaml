@@ -34,7 +34,7 @@ dependencies:
   
   flag: ^5.0.0-nullsafety
   contacts_service: ^0.4.6
-  permission_handler: ^5.1.0+2
+  permission_handler: ^6.1.1
   
   
   
