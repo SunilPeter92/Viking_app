@@ -143,11 +143,15 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 25,
+
+                size: 30,
+
+
               ),
             ),
           ),
           Card(
+
             margin: EdgeInsets.only(
               left: 15,
               right: 15,
@@ -172,7 +176,7 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 25,
+                size: 30,
               ),
             ),
           ),
@@ -201,7 +205,7 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 25,
+                size: 30,
               ),
             ),
           ),
@@ -230,7 +234,7 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 25,
+                size: 30,
               ),
             ),
           ),
@@ -259,7 +263,7 @@ class _SelectStateState extends State<SelectState> {
               trailing: Icon(
                 Icons.arrow_forward_rounded,
                 color: Theme.of(context).cardColor,
-                size: 25,
+                size: 30,
               ),
             ),
           )

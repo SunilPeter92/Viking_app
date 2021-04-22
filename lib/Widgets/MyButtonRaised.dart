@@ -10,6 +10,7 @@ class MyButtonRaised extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Container(
+        height: 50,
         width: MediaQuery.of(context).size.width,
         child: RaisedButton(
           shape: RoundedRectangleBorder(

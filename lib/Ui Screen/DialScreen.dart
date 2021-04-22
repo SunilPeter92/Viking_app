@@ -9,6 +9,7 @@ import 'SearchContacts.dart';
 import 'Settings.dart';
 import 'MessageScreen.dart';
 import 'ActivateNumerScreen.dart';
+import 'opt_screen.dart';
 
 class DialScreen extends StatefulWidget {
   @override
@@ -373,7 +374,7 @@ class _DialScreenState extends State<DialScreen> {
                   style: textStyle(context),
                 ),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                  Navigator.push(context, SlideRightRoute(page: OptScreen()));
                 },
               ),
               Row(
