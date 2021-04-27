@@ -19,7 +19,7 @@ class MinutesAndTexts extends StatelessWidget {
             Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.only(left: 5, top: 8, right: 5),
                   child: Container(
                     decoration: new BoxDecoration(
                       color: Colors.orange,

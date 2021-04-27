@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viking/API/Api%20Class.dart';
 import '../Widgets/AdressRequiredCard.dart';
 import '../Widgets/IdRequiredCard.dart';
 import '../Widgets/MyButtonRaised.dart';
@@ -8,11 +9,12 @@ import 'ChooseAreaCode.dart';
 class SelectState extends StatefulWidget {
   bool isAdressRequired, isIdRequired;
   String countryname;
+  int countryid;
 
   SelectState(
       {@required this.isAdressRequired,
       @required this.countryname,
-      @required this.isIdRequired});
+      @required this.isIdRequired, int countryid});
 
   @override
   _SelectStateState createState() => _SelectStateState();
@@ -118,6 +120,7 @@ class _SelectStateState extends State<SelectState> {
             countryname: widget.countryname,
             isidrequired: widget.isIdRequired,
           ),
+
           Card(
             margin: EdgeInsets.only(
               left: 15,

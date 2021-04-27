@@ -31,10 +31,14 @@ dependencies:
   
   flex_color_picker: ^1.1.5
   flutter_switch: ^0.2.2
-  
   flag: ^5.0.0-nullsafety
   contacts_service: ^0.4.6
   permission_handler: ^6.1.1
+  dio: ^3.0.10
+  fluttertoast: ^7.1.4
+  progress_dialog: ^1.2.4
+  http:
+  cached_network_image: ^2.5.0
   
   
   

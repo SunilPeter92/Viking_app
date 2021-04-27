@@ -31,8 +31,9 @@ class _ActivateNumberState extends State<ActivateNumber> {
                   child: Text(
                     "ACTIVATE YOUR",
                     style: TextStyle(
+
                         fontWeight: FontWeight.bold,
-                        fontSize: width * 0.065,
+                        fontSize: width * 0.055,
                         color: Theme.of(context).canvasColor),
                     //  GoogleFonts.comfortaa(
                     //     textStyle: TextStyle(
@@ -48,7 +49,7 @@ class _ActivateNumberState extends State<ActivateNumber> {
                     "NUMBER",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: width * 0.065,
+                        fontSize: width * 0.055,
                         color: Theme.of(context).canvasColor),
                   ),
                 ),

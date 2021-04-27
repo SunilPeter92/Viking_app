@@ -93,12 +93,16 @@ class _HomeState extends State<Home> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(left: width * 0.03),
-                            child: Text(
-                              "Choose a number instead of using a random one",
-                              style: TextStyle(
-                                fontSize: width * 0.035,
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                            child: Container(
+                              width: MediaQuery.of(context).size.width/1.25,
+                              child: Text(
+                                "Choose a number instead of using a random one",
+                                maxLines: 2,
+                                style: TextStyle(
+                                  fontSize: width * 0.035,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
@@ -189,7 +193,7 @@ class _HomeState extends State<Home> {
                               child: Text(
                                 "Get Help",
                                 style: TextStyle(
-                                    fontSize: width * 0.04,
+                                    fontSize: width * 0.035,
                                     color: Colors.white),
                               ),
                             ),
@@ -230,7 +234,7 @@ class _HomeState extends State<Home> {
                               child: Text(
                                 "Install VPN Vault",
                                 style: TextStyle(
-                                    fontSize: width * 0.04,
+                                    fontSize: width * 0.035,
                                     color: Colors.white),
                               ),
                             ),

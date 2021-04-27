@@ -246,7 +246,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.chat,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -260,7 +260,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.call,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -274,7 +274,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.call_missed,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -289,7 +289,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.person,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -310,7 +310,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.settings,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -324,7 +324,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.message,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -338,7 +338,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.contact_support,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -352,7 +352,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.info,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -366,7 +366,7 @@ class _DialScreenState extends State<DialScreen> {
               ListTile(
                 leading: Icon(
                   Icons.exit_to_app_outlined,
-                  size: 25,
+                  size: 20,
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
@@ -394,7 +394,7 @@ class _DialScreenState extends State<DialScreen> {
 }
 
 textStyle(BuildContext context) {
-  return TextStyle(color: Theme.of(context).canvasColor, fontSize: 20);
+  return TextStyle(color: Theme.of(context).canvasColor, fontSize: 15);
 }
 
 footText(BuildContext context, String text) {
