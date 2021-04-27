@@ -7,6 +7,7 @@ import 'package:viking/Global/GlobalClass.dart';
 import 'package:http/http.dart' as http;
 import 'package:viking/Model/GetCountryModel.dart';
 import 'package:viking/Model/getstateModel.dart';
+import 'package:viking/Model/GetPkg.dart';
 
 import '../Ui Screen/DialScreen.dart';
 import '../Ui Screen/LoginPage.dart';
@@ -65,13 +66,13 @@ class API{
     return http.get(url);
   }
 
-  static Future<getStateModel> getstates() async {
+  static Future<GetPkgModel> getpkg() async {
     try {
       final http.Response response =
-      await http.get(Global.baseurl + "get_satate/"  );
+      await http.get(Global.baseurl + "get_packages"  );
 
-      if (response.statusCode == 201) {
-        return getStateModel.fromJson(jsonDecode(response.body));
+      if (response.statusCode == 200) {
+        return GetPkgModel.fromJson(jsonDecode(response.body));
       }
     } catch (e) {
       throw Exception("Unknown Error");
