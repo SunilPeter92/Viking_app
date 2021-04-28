@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Ui%20Screen/GetCredit.dart';
 import '../Ui Screen/IncreaseBalance.dart';
 import '../Animation/Slider.dart';
 
@@ -48,7 +49,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                             Text(
                               "Renew Number \n using Credits",
                               style: TextStyle(
-                                  fontSize: screenwidth * 0.05,
+                                  fontSize: screenwidth * 0.04,
                                   color: Colors.white),
                             ),
                             Text(
@@ -100,7 +101,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                     "RENEW FOR 1 MONTH",
                     style: TextStyle(
                         color: Theme.of(context).canvasColor,
-                        fontSize: screenwidth * 0.055),
+                        fontSize: screenwidth * 0.05),
                   ),
                 ),
               ],
@@ -155,7 +156,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
                             child: SizedBox(
-                              height: screenheight * 0.09,
+                              height: screenheight * 0.07,
                               width: screenwidth * 0.25,
                               child: FlatButton(
                                   shape: RoundedRectangleBorder(
@@ -166,7 +167,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                      fontSize: screenwidth * 0.05,
+                                      fontSize: screenwidth * 0.04,
                                       color: Theme.of(context).cardColor,
                                     ),
                                   ),
@@ -174,7 +175,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                     Navigator.push(
                                         context,
                                         SlideRightRoute(
-                                            page: IncreaseBalance()));
+                                            page: GetCredits()));
                                   }),
                             ),
                           ),
@@ -184,7 +185,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                   ),
                 ),
                 width: screenwidth * 0.85,
-                height: screenheight * 0.15,
+                height: screenheight * 0.13,
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.only(
@@ -277,7 +278,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
                             child: SizedBox(
-                              height: screenheight * 0.09,
+                              height: screenheight * 0.07,
                               width: screenwidth * 0.25,
                               child: FlatButton(
                                   shape: RoundedRectangleBorder(
@@ -289,7 +290,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                      fontSize: screenwidth * 0.05,
+                                      fontSize: screenwidth * 0.04,
                                       color: Theme.of(context).cardColor,
                                     ),
                                   ),
@@ -297,7 +298,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                     Navigator.push(
                                         context,
                                         SlideRightRoute(
-                                            page: IncreaseBalance()));
+                                            page: GetCredits()));
                                   }),
                             ),
                           ),
@@ -307,7 +308,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                   ),
                 ),
                 width: screenwidth * 0.85,
-                height: screenheight * 0.15,
+                height: screenheight * 0.13,
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.only(
@@ -415,7 +416,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                           Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.02),
                             child: SizedBox(
-                              height: screenheight * 0.09,
+                              height: screenheight * 0.07,
                               width: screenwidth * 0.25,
                               child: FlatButton(
                                   shape: RoundedRectangleBorder(
@@ -427,7 +428,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                   child: Text(
                                     "Extend",
                                     style: TextStyle(
-                                      fontSize: screenwidth * 0.05,
+                                      fontSize: screenwidth * 0.04,
                                       color: Theme.of(context).cardColor,
                                     ),
                                   ),
@@ -435,7 +436,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                                     Navigator.push(
                                         context,
                                         SlideRightRoute(
-                                            page: IncreaseBalance()));
+                                            page: GetCredits()));
                                   }),
                             ),
                           ),
@@ -445,7 +446,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                   ),
                 ),
                 width: screenwidth * 0.85,
-                height: screenheight * 0.15,
+                height: screenheight * 0.13,
                 decoration: BoxDecoration(
                   color: Theme.of(context).cardColor,
                   borderRadius: BorderRadius.all(Radius.circular(15.0)),

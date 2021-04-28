@@ -24,7 +24,7 @@ class _InternationalRatesState extends State<InternationalRates> {
         ),
         title: Text(
           "International Rates",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 18),
         ),
       ),
       body: SingleChildScrollView(
@@ -46,7 +46,7 @@ class _InternationalRatesState extends State<InternationalRates> {
                     child: Text(
                       "Voice Rates \n Credit/min",
                       style: TextStyle(
-                          fontSize: screenwidth * 0.05, color: Colors.white),
+                          fontSize: screenwidth * 0.04, color: Colors.white),
                     ),
                     onPressed: () {
                       Navigator.push(
@@ -69,7 +69,7 @@ class _InternationalRatesState extends State<InternationalRates> {
                     child: Text(
                       "Text Rates \nCredit/SMS",
                       style: TextStyle(
-                          fontSize: screenwidth * 0.05, color: Colors.white),
+                          fontSize: screenwidth * 0.04, color: Colors.white),
                     ),
                     onPressed: () {
                       Navigator.push(

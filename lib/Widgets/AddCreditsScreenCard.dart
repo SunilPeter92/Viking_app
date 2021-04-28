@@ -48,7 +48,7 @@ class AddCreditsCard extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(left: screenwidth * 0.02),
                   child: SizedBox(
-                    height: screenheight * 0.15,
+                    height: screenheight * 0.13,
                     width: screenwidth * 0.25,
                     child: FlatButton(
                         shape: RoundedRectangleBorder(
@@ -59,7 +59,7 @@ class AddCreditsCard extends StatelessWidget {
                         child: Text(
                           "Add",
                           style: TextStyle(
-                              fontSize: screenwidth * 0.05,
+                              fontSize: screenwidth * 0.04,
                               color: Theme.of(context).cardColor),
                         ),
                         onPressed: this.onPressed),
@@ -70,7 +70,7 @@ class AddCreditsCard extends StatelessWidget {
           ],
         ),
         width: screenwidth * 0.85,
-        height: screenheight * 0.30,
+        height: screenheight * 0.20,
         decoration: BoxDecoration(
           color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.all(Radius.circular(15.0)),

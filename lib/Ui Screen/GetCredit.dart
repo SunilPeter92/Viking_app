@@ -13,7 +13,7 @@ class _GetCreditsState extends State<GetCredits> {
   @override
   void initState() {
     // TODO: implement initState
-    // API.getpkg();
+     API.getpkg();
     super.initState();
   }
   @override
@@ -103,107 +103,113 @@ class _GetCreditsState extends State<GetCredits> {
             SizedBox(
               height: 20,
             ),
-            FutureBuilder<GetPkgModel>(
-                future: API.getpkg(),
-                builder: (context, snapshot) {
-                  print(snapshot.data.userData.length);
-                  return snapshot.data.userData.length != 0 ? Container(
-                    height: 500,
-                    color: Colors.blueAccent,
-                    child: ListView.builder(
-                        physics: ClampingScrollPhysics(),
-                        itemCount: snapshot.data.userData.length,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            child: Padding(
-                              padding:
+            Container(
+              child: FutureBuilder<GetPkgModel>(
+                  future: API.getpkg(),
+                  builder: (context, snapshot) {
+                    print(snapshot.data.userData.length);
+                    if (snapshot.hasData) {
+                      return Container(
+                        height: 500,
+                        color: Colors.blueAccent,
+                        child: ListView.builder(
+                            physics: ClampingScrollPhysics(),
+                            itemCount: snapshot.data.userData.length,
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                child: Padding(
+                                  padding:
                                   EdgeInsets.only(left: screenwidth * 0.03),
-                              child: Row(
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                  child: Row(
                                     children: [
-                                      Row(
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            snapshot.data.userData[index].pCredits,
-                                            style: TextStyle(
-                                                fontSize: screenwidth * 0.04,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                snapshot.data.userData[index].pCredits,
+                                                style: TextStyle(
+                                                    fontSize: screenwidth * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                "Credits",
+                                                style: TextStyle(
+                                                  fontSize: screenwidth * 0.04,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ],
                                           ),
                                           Text(
-                                            "Credits",
+                                            snapshot.data.userData[index].pName,
                                             style: TextStyle(
-                                              fontSize: screenwidth * 0.04,
-                                              color: Colors.white,
-                                            ),
+                                                fontSize: screenwidth * 0.035,
+                                                color: Colors.white),
                                           ),
                                         ],
                                       ),
-                                      Text(
-                                        snapshot.data.userData[index].pName,
-                                        style: TextStyle(
-                                            fontSize: screenwidth * 0.035,
-                                            color: Colors.white),
+                                      SizedBox(
+                                        width: screenwidth * 0.17,
                                       ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: screenwidth * 0.17,
-                                  ),
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            left: screenwidth * 0.02),
-                                        child: SizedBox(
-                                          height: screenheight * 0.07,
-                                          width: screenwidth * 0.25,
-                                          child: FlatButton(
-                                              shape: RoundedRectangleBorder(
-                                                  borderRadius:
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: screenwidth * 0.02),
+                                            child: SizedBox(
+                                              height: screenheight * 0.07,
+                                              width: screenwidth * 0.25,
+                                              child: FlatButton(
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
                                                       BorderRadius.circular(12),
-                                                  side: BorderSide(
+                                                      side: BorderSide(
+                                                          color: Theme.of(context)
+                                                              .cardColor)),
+                                                  color: Colors.white,
+                                                  child: Text(
+                                                    snapshot.data.userData[index].pPrize,
+                                                    style: TextStyle(
+                                                      fontSize: screenwidth * 0.03,
                                                       color: Theme.of(context)
-                                                          .cardColor)),
-                                              color: Colors.white,
-                                              child: Text(
-                                                snapshot.data.userData[index].pPrize,
-                                                style: TextStyle(
-                                                  fontSize: screenwidth * 0.03,
-                                                  color: Theme.of(context)
-                                                      .cardColor,
-                                                ),
-                                              ),
-                                              onPressed: () {
-                                                // Navigator.push(
-                                                //     context,
-                                                //     SlideRightRoute(
-                                                //         page: IncreaseBalance()));
-                                              }),
-                                        ),
-                                      ),
+                                                          .cardColor,
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    // Navigator.push(
+                                                    //     context,
+                                                    //     SlideRightRoute(
+                                                    //         page: IncreaseBalance()));
+                                                  }),
+                                            ),
+                                          ),
+                                        ],
+                                      )
                                     ],
-                                  )
-                                ],
-                              ),
-                            ),
-                            width: screenwidth * 0.85,
-                            height: screenheight * 0.1,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).cardColor,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(15.0),
-                                  topRight: Radius.circular(15.0)),
-                            ),
-                          );
-                        }),
-                  ): CircularProgressIndicator();
-                }),
+                                  ),
+                                ),
+                                width: screenwidth * 0.85,
+                                height: screenheight * 0.1,
+                                decoration: BoxDecoration(
+                                  color: Theme.of(context).cardColor,
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(15.0),
+                                      topRight: Radius.circular(15.0)),
+                                ),
+                              );
+                            }),
+                      );
+                    }
+                    return CircularProgressIndicator();
+
+                  }),
+            ),
             // Container(
             //   child: Padding(
             //     padding: EdgeInsets.only(left: screenwidth * 0.03),

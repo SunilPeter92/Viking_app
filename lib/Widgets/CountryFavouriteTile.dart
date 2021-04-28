@@ -16,13 +16,13 @@ class CountryFavouriteTile extends StatelessWidget {
     return Card(
       color: Colors.white,
       child: Padding(
-        padding: EdgeInsets.only(top: 10, bottom: 10, right: 25, left: 25),
+        padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
         child: ListTile(
             onTap: onTap,
             title: Text(
               title,
               style: TextStyle(
-                fontSize: width * 0.050,
+                fontSize: width * 0.04,
               ),
             ),
             leading: CircleAvatar(

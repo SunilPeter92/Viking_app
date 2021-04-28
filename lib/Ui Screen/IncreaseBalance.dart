@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/GetCredit.dart';
 import 'package:viking/Widgets/AddCreditsScreenCard.dart';
 
 class IncreaseBalance extends StatefulWidget {
@@ -176,7 +178,10 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
             // ),
             AddCreditsCard(
               credits: "300",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, SlideRightRoute(page: GetCredits()));
+              },
               texts: "20",
             ),
             SizedBox(
@@ -184,7 +189,10 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
             ),
             AddCreditsCard(
               credits: "900",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, SlideRightRoute(page: GetCredits()));
+              },
               texts: "50",
             ),
             SizedBox(
@@ -192,7 +200,10 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
             ),
             AddCreditsCard(
               credits: "900",
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, SlideRightRoute(page: GetCredits()));
+              },
               texts: "50",
             )
           ],

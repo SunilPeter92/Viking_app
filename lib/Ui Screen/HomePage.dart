@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:viking/Ui%20Screen/GetCredit.dart';
+import 'package:viking/Ui%20Screen/IncreaseBalance.dart';
 import 'RenewPhone.dart';
 import 'package:viking/Widgets/CreditsBox.dart';
 import 'package:viking/Widgets/MinutesAndTexts.dart';
@@ -137,7 +139,7 @@ class _HomeState extends State<Home> {
                   Creditbox(
                     function: () {
                       Navigator.push(
-                          context, SlideRightRoute(page: RenewPhone()));
+                          context, SlideRightRoute(page: GetCredits()));
                     },
                     credits: "0",
                   ),
@@ -149,7 +151,7 @@ class _HomeState extends State<Home> {
                     text: "0",
                     function: () {
                       Navigator.push(
-                          context, SlideRightRoute(page: RenewPhone()));
+                          context, SlideRightRoute(page: IncreaseBalance()));
                     },
                   ),
                 ],
