@@ -107,11 +107,10 @@ class _GetCreditsState extends State<GetCredits> {
               child: FutureBuilder<GetPkgModel>(
                   future: API.getpkg(),
                   builder: (context, snapshot) {
-                    print(snapshot.data.userData.length);
                     if (snapshot.hasData) {
                       return Container(
                         height: 500,
-                        color: Colors.blueAccent,
+
                         child: ListView.builder(
                             physics: ClampingScrollPhysics(),
                             itemCount: snapshot.data.userData.length,
@@ -198,13 +197,16 @@ class _GetCreditsState extends State<GetCredits> {
                                 height: screenheight * 0.1,
                                 decoration: BoxDecoration(
                                   color: Theme.of(context).cardColor,
-                                  borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15.0),
-                                      topRight: Radius.circular(15.0)),
+                                  // borderRadius: BorderRadius.only(
+                                  //     topLeft: Radius.circular(15.0),
+                                  //     topRight: Radius.circular(15.0)),
                                 ),
                               );
                             }),
                       );
+                    }
+                    else if(snapshot.hasError){
+                      return Container(child: CircularProgressIndicator(backgroundColor: Colors.blueAccent,));
                     }
                     return CircularProgressIndicator();
 
