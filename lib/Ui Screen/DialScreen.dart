@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:viking/Ui%20Screen/ContactsPage.dart';
+import 'package:viking/Ui%20Screen/RenewPhone.dart';
 import 'CallScreen.dart';
 import '../Animation/Slider.dart';
 import 'InboxScreen.dart';
@@ -10,6 +12,7 @@ import 'Settings.dart';
 import 'MessageScreen.dart';
 import 'ActivateNumerScreen.dart';
 import 'opt_screen.dart';
+import 'package:viking/Ui Screen/PhoneNumberPopup.dart';
 
 class DialScreen extends StatefulWidget {
   @override
@@ -59,7 +62,55 @@ class _DialScreenState extends State<DialScreen> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
         iconTheme: IconThemeData(color: Colors.white),
-        title: Text("Keypad", style: TextStyle(color: Colors.white)),
+        title: InkWell(
+          onTap: (){
+            showCupertinoModalPopup<void>(
+              context: context,
+              builder: (BuildContext context) {
+                return Padding(
+                  padding: const EdgeInsets.only(
+                      left: 40, right: 40),
+                  child: Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius:
+                          BorderRadius.circular(10),
+                          color: Colors.grey[300]),
+                      height: MediaQuery.of(context)
+                          .size
+                          .height /
+                          5,
+                      child: Scaffold(
+                        backgroundColor: Colors.transparent,
+                        body: PhoneNumberPopup(),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            );
+
+          },
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              border: Border.all(width: 1 , color: Colors.white)
+            ),
+            height: 40,
+            width: 190 ,
+            child:
+            Padding(
+              padding: const EdgeInsets.only(left: 10 , right: 10),
+              child: Row(
+              children: [
+                Text('Phoner Number',style: TextStyle(color: Colors.white , fontSize: 15)),
+                Spacer(),
+                Icon(Icons.keyboard_arrow_down)
+              ],
+          ),
+            ),),
+        ),
+        //Text("Keypad", style: TextStyle(color: Colors.white)),
         actions: [
           IconButton(
             onPressed: () {

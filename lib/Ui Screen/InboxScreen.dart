@@ -41,7 +41,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
                 },
                 trailing: Text(
                   "4:45 pm",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
                 leading: CircleAvatar(
                   radius: 25,
@@ -55,7 +55,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
                 ),
                 title: Text(
                   "John micheal",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
             ),
@@ -70,7 +70,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
               child: ListTile(
                 trailing: Text(
                   "3:45 pm",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
                 onTap: () {
                   Navigator.push(
@@ -88,7 +88,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
                 ),
                 title: Text(
                   "Jaymes charles",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
             ),
@@ -103,7 +103,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
               child: ListTile(
                 trailing: Text(
                   "4:45 pm",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
                 onTap: () {
                   Navigator.push(
@@ -121,7 +121,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
                 ),
                 title: Text(
                   "George charles",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 15),
                 ),
               ),
             )

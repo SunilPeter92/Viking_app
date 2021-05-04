@@ -41,7 +41,7 @@ class _SearchContactsState extends State<SearchContacts> {
             ),
             TextField(
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Colors.black,
                 ),
                 decoration: InputDecoration(
                   prefixIcon: Icon(Icons.search),

@@ -24,7 +24,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Help",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 25),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -32,7 +32,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "International Pricing",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 20),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -40,7 +40,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Rate the app",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 20),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -48,7 +48,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "FAQ",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 20),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -56,7 +56,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Account",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 25),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -64,7 +64,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Privacy Policy",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 20),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
           ListTile(
@@ -72,7 +72,7 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Terms of Use",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 20),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
             ),
           ),
         ],
