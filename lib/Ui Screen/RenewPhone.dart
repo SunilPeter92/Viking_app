@@ -1,6 +1,10 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:provider/provider.dart';
+import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/ColorProvider.dart';
+import 'package:viking/Ui Screen/RingTonePlayer.dart';
 
 class RenewPhone extends StatefulWidget {
   @override
@@ -108,6 +112,17 @@ class _RenewPhoneState extends State<RenewPhone> {
                   ),
                 ],
               ),
+
+              // Consumer<ThemeNotifier>(
+              //   builder: (context,notifier,child) => SwitchListTile(
+              //     title: Text("Dark Mode"),
+              //     onChanged: (val){
+              //       notifier.toggleTheme();
+              //     },
+              //     value: notifier.darkTheme ,
+              //   ),
+              // ),
+
               Container(
                 decoration: new BoxDecoration(
                     borderRadius: BorderRadius.all(
@@ -119,110 +134,127 @@ class _RenewPhoneState extends State<RenewPhone> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      ColorIndicator(
-                        onSelect: () {
-                          if (colors[0] == Colors.white) {
-                            for (int i = 0; i < colors.length; i++) {
-                              colors[i] = Colors.white;
+                      Consumer<ThemeNotifier>(
+
+                        builder: (context,notifier,child) =>  ColorIndicator(
+                          onSelect: () {
+                            if (colors[0] == Colors.white) {
+                              for (int i = 0; i < colors.length; i++) {
+                                colors[i] = Colors.white;
+                              }
+                              colors[0] = borders[0];
+                              setState(() {});
+                            } else {
+                              setState(() {
+                                colors[0] = Colors.white;
+                              });
                             }
-                            colors[0] = borders[0];
-                            setState(() {});
-                          } else {
-                            setState(() {
-                              colors[0] = Colors.white;
-                            });
-                          }
-                        },
-                        width: 44,
-                        height: 44,
-                        borderRadius: 25,
-                        borderColor: borders[0],
-                        hasBorder: true,
-                        color: colors[0],
+                            notifier.toggleTheme(0);
+                          },
+                          //value: notifier.darkTheme ,
+                          width: 44,
+                          height: 44,
+                          borderRadius: 25,
+                          borderColor: borders[0],
+                          hasBorder: true,
+                          color: colors[0],
+                        ),
                       ),
-                      ColorIndicator(
-                        onSelect: () {
-                          if (colors[1] == Colors.white) {
-                            for (int i = 0; i < colors.length; i++) {
-                              colors[i] = Colors.white;
+                      Consumer<ThemeNotifier>(
+                        builder: (context,notifier,child) =>  ColorIndicator(
+                          onSelect: () {
+                            if (colors[1] == Colors.white) {
+                              for (int i = 0; i < colors.length; i++) {
+                                colors[i] = Colors.white;
+                              }
+                              colors[1] = borders[1];
+                              setState(() {});
+                            } else {
+                              setState(() {
+                                colors[1] = Colors.white;
+                              });
                             }
-                            colors[1] = borders[1];
-                            setState(() {});
-                          } else {
-                            setState(() {
-                              colors[1] = Colors.white;
-                            });
-                          }
-                        },
-                        width: 44,
-                        height: 44,
-                        borderRadius: 25,
-                        borderColor: borders[1],
-                        hasBorder: true,
-                        color: colors[1],
+                            notifier.toggleTheme(1);
+                          },
+                          width: 44,
+                          height: 44,
+                          borderRadius: 25,
+                          borderColor: borders[1],
+                          hasBorder: true,
+                          color: colors[1],
+                        ),
                       ),
-                      ColorIndicator(
-                        onSelect: () {
-                          if (colors[2] == Colors.white) {
-                            for (int i = 0; i < colors.length; i++) {
-                              colors[i] = Colors.white;
+                      Consumer<ThemeNotifier>(
+                        builder: (context,notifier,child) => ColorIndicator(
+                          onSelect: () {
+                            if (colors[2] == Colors.white) {
+                              for (int i = 0; i < colors.length; i++) {
+                                colors[i] = Colors.white;
+                              }
+                              colors[2] = borders[2];
+                              setState(() {});
+                            } else {
+                              setState(() {
+                                colors[2] = Colors.white;
+                              });
                             }
-                            colors[2] = borders[2];
-                            setState(() {});
-                          } else {
-                            setState(() {
-                              colors[2] = Colors.white;
-                            });
-                          }
-                        },
-                        width: 44,
-                        height: 44,
-                        borderRadius: 25,
-                        borderColor: borders[2],
-                        hasBorder: true,
-                        color: colors[2],
+                            notifier.toggleTheme(2);
+                          },
+                          width: 44,
+                          height: 44,
+                          borderRadius: 25,
+                          borderColor: borders[2],
+                          hasBorder: true,
+                          color: colors[2],
+                        ),
                       ),
-                      ColorIndicator(
-                        onSelect: () {
-                          if (colors[3] == Colors.white) {
-                            for (int i = 0; i < colors.length; i++) {
-                              colors[i] = Colors.white;
+                      Consumer<ThemeNotifier>(
+                        builder: (context,notifier,child) =>  ColorIndicator(
+                          onSelect: () {
+                            if (colors[3] == Colors.white) {
+                              for (int i = 0; i < colors.length; i++) {
+                                colors[i] = Colors.white;
+                              }
+                              colors[3] = borders[3];
+                              setState(() {});
+                            } else {
+                              setState(() {
+                                colors[3] = Colors.white;
+                              });
                             }
-                            colors[3] = borders[3];
-                            setState(() {});
-                          } else {
-                            setState(() {
-                              colors[3] = Colors.white;
-                            });
-                          }
-                        },
-                        width: 44,
-                        height: 44,
-                        borderRadius: 25,
-                        borderColor: borders[3],
-                        hasBorder: true,
-                        color: colors[3],
+                            notifier.toggleTheme(3);
+                          },
+                          width: 44,
+                          height: 44,
+                          borderRadius: 25,
+                          borderColor: borders[3],
+                          hasBorder: true,
+                          color: colors[3],
+                        ),
                       ),
-                      ColorIndicator(
-                        onSelect: () {
-                          if (colors[4] == Colors.white) {
-                            for (int i = 0; i < colors.length; i++) {
-                              colors[i] = Colors.white;
+                      Consumer<ThemeNotifier>(
+                        builder: (context,notifier,child) =>  ColorIndicator(
+                          onSelect: () {
+                            if (colors[4] == Colors.white) {
+                              for (int i = 0; i < colors.length; i++) {
+                                colors[i] = Colors.white;
+                              }
+                              colors[4] = borders[4];
+                              setState(() {});
+                            } else {
+                              setState(() {
+                                colors[4] = Colors.white;
+                              });
                             }
-                            colors[4] = borders[4];
-                            setState(() {});
-                          } else {
-                            setState(() {
-                              colors[4] = Colors.white;
-                            });
-                          }
-                        },
-                        width: 44,
-                        height: 44,
-                        borderRadius: 25,
-                        borderColor: borders[4],
-                        hasBorder: true,
-                        color: colors[4],
+                            notifier.toggleTheme(4);
+                          },
+                          width: 44,
+                          height: 44,
+                          borderRadius: 25,
+                          borderColor: borders[4],
+                          hasBorder: true,
+                          color: colors[4],
+                        ),
                       ),
                     ],
                   ),
@@ -524,43 +556,49 @@ class _RenewPhoneState extends State<RenewPhone> {
                   color: Colors.black,
                 ),
               ),
-              Container(
-                width: screenwidth * 0.9,
-                height: screenheight * 0.1,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(15.0),
-                    bottomRight: Radius.circular(15.0), //
+              InkWell(
+                onTap: (){
+                  Navigator.pushReplacement(context, SlideRightRoute(page: RingtonePlayer()));
+                },
+
+                child: Container(
+                  width: screenwidth * 0.9,
+                  height: screenheight * 0.1,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(15.0),
+                      bottomRight: Radius.circular(15.0), //
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(screenheight * 0.02),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text("Ringtone",
-                              style: TextStyle(
-                                  fontSize: screenwidth * 0.04,
-                                  color: Colors.black)),
-                          Spacer(),
-                          Row(
-                            children: [
-                              Text("Default",
-                                  style: TextStyle(
-                                      fontSize: screenwidth * 0.033,
-                                      color: Colors.grey[500])),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Theme.of(context).cardColor,
-                                size: screenwidth * 0.07,
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.all(screenheight * 0.02),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text("Ringtone",
+                                style: TextStyle(
+                                    fontSize: screenwidth * 0.04,
+                                    color: Colors.black)),
+                            Spacer(),
+                            Row(
+                              children: [
+                                Text("Default",
+                                    style: TextStyle(
+                                        fontSize: screenwidth * 0.033,
+                                        color: Colors.grey[500])),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Theme.of(context).cardColor,
+                                  size: screenwidth * 0.07,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
