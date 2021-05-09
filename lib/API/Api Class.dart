@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:viking/Model/GetCountryModel.dart';
 import 'package:viking/Model/getstateModel.dart';
 import 'package:viking/Model/GetPkg.dart';
+import 'package:viking/Model/GetPremiumPkg.dart';
 
 import '../Ui Screen/DialScreen.dart';
 import '../Ui Screen/LoginPage.dart';
@@ -73,6 +74,19 @@ class API{
 
       if (response.statusCode == 200) {
         return GetPkgModel.fromJson(jsonDecode(response.body));
+      }
+    } catch (e) {
+      throw Exception("Unknown Error");
+    }
+  }
+
+  static Future<getPremiumPkgModel> getpremiumpkg() async {
+    try {
+      final http.Response response =
+      await http.get(Global.baseurl + "get_p_packages"  );
+
+      if (response.statusCode == 200) {
+        return getPremiumPkgModel.fromJson(jsonDecode(response.body));
       }
     } catch (e) {
       throw Exception("Unknown Error");

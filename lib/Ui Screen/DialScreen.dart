@@ -141,15 +141,20 @@ class _DialScreenState extends State<DialScreen> {
             Center(
                 child: Text(
               "Country Code with + is required",
-              style: TextStyle(color: Theme.of(context).canvasColor),
+              style: TextStyle(color: Colors.white),
             )),
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Container(
+                decoration: BoxDecoration(
+                  border:Border(
+                    bottom: BorderSide(width: 1, color: Colors.white)
+                  )
+                ),
                 width: width / 1.6,
                 child: TextField(
                   readOnly: true,
-                  style: TextStyle(fontSize: width * 0.05, color: Colors.grey),
+                  style: TextStyle(fontSize: width * 0.05, color: Colors.white),
                   controller: textfield,
                 ),
               ),
@@ -183,7 +188,8 @@ class _DialScreenState extends State<DialScreen> {
                             onPressed: () {
                               this.textfield.text += nums[index];
                             },
-                            color: Theme.of(context).canvasColor,
+                            color:Colors.white,
+                            //Theme.of(context).canvasColor,
                             textColor: Colors.white,
                             child: Text(
                               nums[index],

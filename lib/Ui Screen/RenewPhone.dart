@@ -558,7 +558,7 @@ class _RenewPhoneState extends State<RenewPhone> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.pushReplacement(context, SlideRightRoute(page: RingtonePlayer()));
+                  // Navigator.pushReplacement(context, SlideRightRoute(page: RingtonePlayer()));
                 },
 
                 child: Container(

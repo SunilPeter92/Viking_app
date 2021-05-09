@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viking/API/Api%20Class.dart';
 import 'package:viking/Model/GetPkg.dart';
+import 'package:viking/Model/GetPremiumPkg.dart';
 import '../Ui Screen/IncreaseBalance.dart';
 import '../Animation/Slider.dart';
 
@@ -109,10 +110,14 @@ class _GetCreditsState extends State<GetCredits> {
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Container(
-                        height: 500,
-
+                        height: 220,
+                        width: screenwidth * 0.85,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                            borderRadius: BorderRadius.circular(20)
+                        ),
                         child: ListView.builder(
-                            physics: ClampingScrollPhysics(),
+                            physics: NeverScrollableScrollPhysics(),
                             itemCount: snapshot.data.userData.length,
                             scrollDirection: Axis.vertical,
                             itemBuilder: (BuildContext context, int index) {
@@ -153,9 +158,7 @@ class _GetCreditsState extends State<GetCredits> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(
-                                        width: screenwidth * 0.17,
-                                      ),
+                                     Spacer(),
                                       Row(
                                         children: [
                                           Padding(
@@ -189,18 +192,142 @@ class _GetCreditsState extends State<GetCredits> {
                                             ),
                                           ),
                                         ],
-                                      )
+                                      ),
+                                      SizedBox(width: 10,)
                                     ],
                                   ),
                                 ),
                                 width: screenwidth * 0.85,
                                 height: screenheight * 0.1,
-                                decoration: BoxDecoration(
-                                  color: Theme.of(context).cardColor,
-                                  // borderRadius: BorderRadius.only(
-                                  //     topLeft: Radius.circular(15.0),
-                                  //     topRight: Radius.circular(15.0)),
+                              );
+                            }),
+                      );
+                    }
+                    else if(snapshot.hasError){
+                      return Container(child: CircularProgressIndicator(backgroundColor: Colors.blueAccent,));
+                    }
+                    return CircularProgressIndicator();
+
+                  }),
+            ),
+            SizedBox(
+              height: screenheight * 0.05,
+            ),
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 30),
+                  child: Text(
+                    "PREMIUM PACKS",
+                    style: TextStyle(
+                        color: Theme.of(context).canvasColor,
+                        fontSize: screenwidth * 0.04),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+
+              child: FutureBuilder<getPremiumPkgModel>(
+                  future: API.getpremiumpkg(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      return Container(
+                        height: 220,
+                        width: screenwidth * 0.85,
+                        decoration: BoxDecoration(
+                            color: Theme.of(context).cardColor,
+                          borderRadius: BorderRadius.circular(20)
+                        ),
+                        child: ListView.builder(
+                            physics: NeverScrollableScrollPhysics(),
+                            itemCount: snapshot.data.userData.length,
+                            scrollDirection: Axis.vertical,
+                            itemBuilder: (BuildContext context, int index) {
+                              return Container(
+                                // decoration: BoxDecoration(
+                                //     borderRadius: BorderRadius.circular(20)
+                                // ),
+                                child: Padding(
+                                  padding:
+                                  EdgeInsets.only(left: screenwidth * 0.03),
+                                  child: Row(
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Text(
+                                                snapshot.data.userData[index].pCredits,
+                                                style: TextStyle(
+                                                    fontSize: screenwidth * 0.04,
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold),
+                                              ),
+                                              Text(
+                                                "Credits",
+                                                style: TextStyle(
+                                                  fontSize: screenwidth * 0.04,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Text(
+                                            snapshot.data.userData[index].pName,
+                                            style: TextStyle(
+                                                fontSize: screenwidth * 0.035,
+                                                color: Colors.white),
+                                          ),
+                                        ],
+                                      ),
+                                     Spacer(),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                left: screenwidth * 0.02),
+                                            child: SizedBox(
+                                              height: screenheight * 0.07,
+                                              width: screenwidth * 0.25,
+                                              child: FlatButton(
+                                                  shape: RoundedRectangleBorder(
+                                                      borderRadius:
+                                                      BorderRadius.circular(12),
+                                                      side: BorderSide(
+                                                          color: Theme.of(context)
+                                                              .cardColor)),
+                                                  color: Colors.white,
+                                                  child: Text(
+                                                    snapshot.data.userData[index].pPrize,
+                                                    style: TextStyle(
+                                                      fontSize: screenwidth * 0.03,
+                                                      color: Theme.of(context)
+                                                          .cardColor,
+                                                    ),
+                                                  ),
+                                                  onPressed: () {
+                                                    // Navigator.push(
+                                                    //     context,
+                                                    //     SlideRightRoute(
+                                                    //         page: IncreaseBalance()));
+                                                  }),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(width: 10,),
+                                    ],
+                                  ),
                                 ),
+                                width: screenwidth * 0.85,
+                                height: screenheight * 0.1,
                               );
                             }),
                       );
