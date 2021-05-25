@@ -8,14 +8,12 @@ class SlideRightRoute extends PageRouteBuilder {
         Animation<double> animation,
         Animation<double> secondaryAnimation,
         ) =>
-    page,
-    transitionsBuilder: (
+    page, transitionsBuilder: (
         BuildContext context,
         Animation<double> animation,
         Animation<double> secondaryAnimation,
         Widget child,
-        ) =>
-        SlideTransition(
+        ) => SlideTransition(
           position: Tween<Offset>(
             begin: const Offset(-1, 0),
             end: Offset.zero,

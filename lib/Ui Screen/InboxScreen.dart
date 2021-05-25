@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:viking/Ui%20Screen/DialScreen.dart';
+import 'package:viking/Ui%20Screen/SearchContacts.dart';
+import 'package:viking/Ui%20Screen/NewMessegePage.dart';
 import '../Animation/Slider.dart';
 import 'MessageScreen.dart';
 
@@ -22,6 +24,17 @@ class _InBoxScreenState extends State<InBoxScreen> {
           "Inbox Screen",
           style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          // action button
+          IconButton(
+            icon: Icon( Icons.add_circle_outline_outlined ),
+            onPressed: () {
+              Navigator.push(context, SlideRightRoute(page: NewMessegeScreen()));
+            },
+          ),
+
+        ],
+
       ),
       body: SafeArea(
         child: ListView(
@@ -131,3 +144,5 @@ class _InBoxScreenState extends State<InBoxScreen> {
     );
   }
 }
+
+

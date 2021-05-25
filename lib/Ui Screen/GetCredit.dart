@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:stripe_payment/stripe_payment.dart';
 import 'package:viking/API/Api%20Class.dart';
 import 'package:viking/Model/GetPkg.dart';
 import 'package:viking/Model/GetPremiumPkg.dart';
+import 'package:viking/Ui%20Screen/StripPayment.dart';
 import '../Ui Screen/IncreaseBalance.dart';
 import '../Animation/Slider.dart';
 
@@ -11,9 +15,16 @@ class GetCredits extends StatefulWidget {
 }
 
 class _GetCreditsState extends State<GetCredits> {
+  GlobalKey<ScaffoldState> _scaffoldKey=GlobalKey();
+  Token _paymentToken;
+  String _error;
   @override
   void initState() {
     // TODO: implement initState
+    StripePayment.setOptions(
+        StripeOptions(publishableKey: "pk_test_EcVoAnlmOQTc5WD8RfdkMLFd00VPBVeiLz",
+            merchantId: "Test",
+            androidPayMode: 'test'));
      API.getpkg();
     super.initState();
   }
@@ -22,6 +33,7 @@ class _GetCreditsState extends State<GetCredits> {
     final screenheight = MediaQuery.of(context).size.height;
     final screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
@@ -176,18 +188,42 @@ class _GetCreditsState extends State<GetCredits> {
                                                               .cardColor)),
                                                   color: Colors.white,
                                                   child: Text(
-                                                    snapshot.data.userData[index].pPrize,
+                                                    'Rs. ${snapshot.data.userData[index].pPrize}',
                                                     style: TextStyle(
-                                                      fontSize: screenwidth * 0.03,
+                                                      fontSize: screenwidth * 0.04,
                                                       color: Theme.of(context)
                                                           .cardColor,
                                                     ),
                                                   ),
                                                   onPressed: () {
+                                                    // if (Platform.isIOS) {
+                                                    //   _controller.jumpTo(450);
+                                                    // }
+                                                    StripePayment.paymentRequestWithNativePay(
+                                                      androidPayOptions: AndroidPayPaymentRequest(
+                                                        totalPrice: "2.40",
+                                                        currencyCode: "EUR",
+                                                      ),
+                                                      applePayOptions: ApplePayPaymentOptions(
+                                                        countryCode: 'DE',
+                                                        currencyCode: 'EUR',
+                                                        items: [
+                                                          ApplePayItem(
+                                                            label: 'Test',
+                                                            amount: '27',
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ).then((token) {
+                                                      setState(() {
+                                                        _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Received ${token.tokenId}')));
+                                                        _paymentToken = token;
+                                                      });
+                                                    }).catchError(setError);
                                                     // Navigator.push(
                                                     //     context,
                                                     //     SlideRightRoute(
-                                                    //         page: IncreaseBalance()));
+                                                    //         page: StripPayment()));
                                                   }),
                                             ),
                                           ),
@@ -307,7 +343,7 @@ class _GetCreditsState extends State<GetCredits> {
                                                   child: Text(
                                                     snapshot.data.userData[index].pPrize,
                                                     style: TextStyle(
-                                                      fontSize: screenwidth * 0.03,
+                                                      fontSize: screenwidth * 0.04,
                                                       color: Theme.of(context)
                                                           .cardColor,
                                                     ),
@@ -845,5 +881,12 @@ class _GetCreditsState extends State<GetCredits> {
         ),
       ),
     );
+  }
+
+  void setError(dynamic error) {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(error.toString())));
+    setState(() {
+      _error = error.toString();
+    });
   }
 }

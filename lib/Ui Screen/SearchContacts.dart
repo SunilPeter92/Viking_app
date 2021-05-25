@@ -1,67 +1,181 @@
+import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:viking/Animation/Slider.dart';
+
+import 'NewMessegePage.dart';
 
 class SearchContacts extends StatefulWidget {
   @override
-  _SearchContactsState createState() => _SearchContactsState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
-class _SearchContactsState extends State<SearchContacts> {
+class _MyHomePageState extends State<SearchContacts> {
+  List<Contact> contacts = [];
+  List<Contact> contactsFiltered = [];
+  Map<String, Color> contactsColorMap = new Map();
+  TextEditingController searchController = new TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    getPermissions();
+  }
+  getPermissions() async {
+    if (await Permission.contacts.request().isGranted) {
+      getAllContacts();
+      searchController.addListener(() {
+        filterContacts();
+      });
+    }
+  }
+
+  String flattenPhoneNumber(String phoneStr) {
+    return phoneStr.replaceAllMapped(RegExp(r'^(\+)|\D'), (Match m) {
+      return m[0] == "+" ? "+" : "";
+    });
+  }
+
+  getAllContacts() async {
+    List colors = [
+      Colors.green,
+      Colors.indigo,
+      Colors.yellow,
+      Colors.orange
+    ];
+    int colorIndex = 0;
+    List<Contact> _contacts = (await ContactsService.getContacts()).toList();
+    _contacts.forEach((contact) {
+      Color baseColor = colors[colorIndex];
+      contactsColorMap[contact.displayName] = baseColor;
+      colorIndex++;
+      if (colorIndex == colors.length) {
+        colorIndex = 0;
+      }
+    });
+    setState(() {
+      contacts = _contacts;
+    });
+  }
+
+  filterContacts() {
+    List<Contact> _contacts = [];
+    _contacts.addAll(contacts);
+    if (searchController.text.isNotEmpty) {
+      _contacts.retainWhere((contact) {
+        String searchTerm = searchController.text.toLowerCase();
+        String searchTermFlatten = flattenPhoneNumber(searchTerm);
+        String contactName = contact.displayName.toLowerCase();
+        bool nameMatches = contactName.contains(searchTerm);
+        if (nameMatches == true) {
+          return true;
+        }
+
+        if (searchTermFlatten.isEmpty) {
+          return false;
+        }
+
+        var phone = contact.phones.firstWhere((phn) {
+          String phnFlattened = flattenPhoneNumber(phn.value);
+          return phnFlattened.contains(searchTermFlatten);
+        }, orElse: () => null);
+
+        return phone != null;
+      });
+    }
+    setState(() {
+      contactsFiltered = _contacts;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final screenheight = MediaQuery.of(context).size.height;
-    final screenwidth = MediaQuery.of(context).size.width;
+    bool isSearching = searchController.text.isNotEmpty;
+    bool listItemsExist = (contactsFiltered.length > 0 || contacts.length > 0);
     return Scaffold(
-      backgroundColor: Theme.of(context).accentColor,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenwidth * 0.1),
+      appBar: AppBar(
+        title: Text('Contacts'),
+        backgroundColor: Theme.of(context).cardColor,
+
+      ),
+      body: Container(
+        padding: EdgeInsets.all(20),
         child: Column(
-          children: [
-            SizedBox(
-              height: screenheight * 0.1,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Contacts",
-                  style: TextStyle(
-                      fontSize: screenwidth * 0.07,
-                      color: Theme.of(context).cardColor),
-                ),
-                IconButton(
-                  icon: Icon(Icons.add_circle_outline_outlined,
-                      color: Theme.of(context).cardColor,
-                      size: screenwidth * 0.09),
-                  onPressed: () {},
-                )
-              ],
-            ),
-            SizedBox(
-              height: screenwidth * 0.1,
-            ),
-            TextField(
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+          children: <Widget>[
+            Container(
+              child: TextField(
+                controller: searchController,
                 decoration: InputDecoration(
-                  prefixIcon: Icon(Icons.search),
-                  filled: true,
-                  fillColor: Colors.white,
-                  hintText: 'Find Contacts',
+                    labelText: 'Search',
+                    border: new OutlineInputBorder(
+                        borderSide: new BorderSide(
+                            color: Theme.of(context).cardColor
+                        )
+                    ),
+                    prefixIcon: Icon(
+                        Icons.search,
+                      color: Theme.of(context).cardColor,
 
-                  hintStyle: TextStyle(letterSpacing: 2, color: Colors.grey),
+                    )
+                ),
+              ),
+            ),
+            if (listItemsExist == true) Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: isSearching == true ? contactsFiltered.length : contacts.length,
+                itemBuilder: (context, index) {
+                  Contact contact = isSearching == true ? contactsFiltered[index] : contacts[index];
 
-                  // focusedBorder: InputBorder.none,
-                  // enabledBorder: InputBorder.none,
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(color: Colors.orange[50]),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    borderSide: BorderSide(color: Colors.orange[50]),
-                  ),
-                )),
+                  var baseColor = contactsColorMap[contact.displayName] as dynamic;
+
+                  Color color1 = baseColor[800];
+                  Color color2 = baseColor[400];
+                  return ListTile(
+                    onTap: (){
+                      print(contact.displayName);
+                      Navigator.push(context, SlideRightRoute(page: NewMessegeScreen(number: contact.phones.elementAt(0).value,)));
+                    },
+                      title: Text(contact.displayName),
+                      subtitle: Text(
+                          contact.phones.length > 0 ? contact.phones.elementAt(0).value : ''
+                      ),
+                      leading: (contact.avatar != null && contact.avatar.length > 0) ?
+                      CircleAvatar(
+                        backgroundImage: MemoryImage(contact.avatar),
+                      ) :
+                      Container(
+                          decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                  colors: [
+                                    color1,
+                                    color2,
+                                  ],
+                                  begin: Alignment.bottomLeft,
+                                  end: Alignment.topRight
+                              )
+                          ),
+                          child: CircleAvatar(
+                              child: Text(
+                                  contact.initials(),
+                                  style: TextStyle(
+                                      color: Colors.white
+                                  )
+                              ),
+                              backgroundColor: Colors.transparent
+                          )
+                      )
+                  );
+                },
+              ),
+            ) else Container(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                  isSearching ?'No search results to show' : 'No contacts exist',
+                  style: Theme.of(context).textTheme.headline6
+              ) ,
+            )
           ],
         ),
       ),

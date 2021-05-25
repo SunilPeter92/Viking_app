@@ -20,6 +20,7 @@
 
 
     <application
+        android:usesCleartextTraffic="true"
         android:name="io.flutter.app.FlutterApplication"
         android:label="viking"
         android:icon="@mipmap/ic_launcher">

@@ -15,6 +15,11 @@ import 'opt_screen.dart';
 import 'package:viking/Ui Screen/PhoneNumberPopup.dart';
 
 class DialScreen extends StatefulWidget {
+  final String number;
+
+  const DialScreen({Key key, this.number}) : super(key: key);
+
+
   @override
   _DialScreenState createState() => _DialScreenState();
 }
@@ -51,8 +56,14 @@ class _DialScreenState extends State<DialScreen> {
   ];
   double width, height;
   var controller;
-  TextEditingController textfield = new TextEditingController();
+  TextEditingController textfield;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    textfield = new TextEditingController(text: widget.number==null?'':widget.number);
+  }
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;

@@ -7,12 +7,14 @@ import 'package:viking/Global/GlobalClass.dart';
 import 'package:http/http.dart' as http;
 import 'package:viking/Model/GetCountryModel.dart';
 import 'package:viking/Model/getstateModel.dart';
+import 'package:viking/Model/Number.dart';
 import 'package:viking/Model/GetPkg.dart';
 import 'package:viking/Model/GetPremiumPkg.dart';
 
 import '../Ui Screen/DialScreen.dart';
 import '../Ui Screen/LoginPage.dart';
 import '../Ui Screen/Register.dart';
+import 'package:viking/Model//UserResponse.dart';
 
 class API{
   static Login(BuildContext context, email, password , ) {
@@ -26,6 +28,9 @@ class API{
     dio.post(Global.baseurl + "user_login", data: data).then((response) {
       print(response.statusCode);
       if (response.statusCode == 201) {
+        Global.userResponse=UserResponse.fromJson(response.data);
+        print(Global.userResponse.userDetails.balance);
+
         LoginPage.pr.hide();
         Navigator.push(
           context,
@@ -66,11 +71,19 @@ class API{
     var url = Global.baseurl + "get_country";
     return http.get(url);
   }
-
+  static Future<Numbers> getNumber(String code) async {
+    var url = Global.baseurl + "get_number?country_code=$code";
+    http.Response response=await http.get(url);
+    if(response.statusCode==201){
+      return Numbers.fromJson(json.decode(response.body));
+    }
+  return Numbers();
+  }
   static Future<GetPkgModel> getpkg() async {
     try {
       final http.Response response =
       await http.get(Global.baseurl + "get_packages"  );
+
 
       if (response.statusCode == 200) {
         return GetPkgModel.fromJson(jsonDecode(response.body));

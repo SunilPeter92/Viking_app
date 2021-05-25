@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:viking/Global/GlobalClass.dart';
 import 'package:viking/Ui%20Screen/GetCredit.dart';
 import '../Ui Screen/IncreaseBalance.dart';
 import '../Animation/Slider.dart';
 
 class ExtendsCredits extends StatefulWidget {
+  final String number;
+
+  const ExtendsCredits({Key key, this.number}) : super(key: key);
+
   @override
   _ExtendsCreditsState createState() => _ExtendsCreditsState();
 }
@@ -17,7 +22,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        title: Text("Phone Number ", style: TextStyle(color: Colors.white)),
+        title: Text(widget.number, style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
         ),
@@ -44,20 +49,40 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
-                              "Renew Number \n using Credits",
+                              "Get Number \n using Credits",
                               style: TextStyle(
                                   fontSize: screenwidth * 0.04,
-                                  color: Colors.white),
-                            ),
-                            Text(
-                              "0",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: screenwidth * 0.08,
+                                  color: Colors.white,
+                              fontWeight: FontWeight.bold
                               ),
+                            ),
+                            Column(
+                              children: [
+                                Text(
+                                  Global.userResponse.userDetails.balance,
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: screenwidth * 0.08,
+                                  ),
+                                ),
+                                RaisedButton(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8)),
+                                  color: Colors.white,
+                                  child: Text(
+                                    "Get More",
+                                    style: TextStyle(
+                                        color: Theme.of(context).cardColor),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.push(context,
+                                        SlideRightRoute(page: GetCredits()));
+                                  },
+                                )
+                              ],
                             )
                           ],
                         ),
@@ -67,21 +92,7 @@ class _ExtendsCreditsState extends State<ExtendsCredits> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            RaisedButton(
-                              elevation: 10,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8)),
-                              color: Colors.white,
-                              child: Text(
-                                "Get More",
-                                style: TextStyle(
-                                    color: Theme.of(context).cardColor),
-                              ),
-                              onPressed: () {
-                                Navigator.push(context,
-                                    SlideRightRoute(page: IncreaseBalance()));
-                              },
-                            )
+
                           ],
                         ),
                       ),

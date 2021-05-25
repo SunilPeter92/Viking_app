@@ -17,6 +17,8 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         title: Text("Increase Balance", style: TextStyle(color: Colors.white)),
+        backgroundColor: Theme.of(context).cardColor,
+
         leading: BackButton(
           color: Colors.white,
         ),
@@ -33,8 +35,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
                 width: screenwidth * 0.8,
                 child: FlatButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Theme.of(context).primaryColor)),
+                      borderRadius: BorderRadius.circular(8),),
                   color: Theme.of(context).cardColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,8 +65,7 @@ class _IncreaseBalanceState extends State<IncreaseBalance> {
                 width: screenwidth * 0.8,
                 child: FlatButton(
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Theme.of(context).primaryColor)),
+                      borderRadius: BorderRadius.circular(8),),
                   color: Theme.of(context).cardColor,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

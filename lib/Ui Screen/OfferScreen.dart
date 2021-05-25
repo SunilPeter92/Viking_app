@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:stripe_payment/stripe_payment.dart';
 
 import '../Widgets/MyButtonRaised.dart';
 import 'RenewPhone.dart';
@@ -16,13 +17,16 @@ class OfferScreen extends StatefulWidget {
 
 class _OfferScreenState extends State<OfferScreen> {
   final controller = PageController(viewportFraction: 0.8);
-
+  GlobalKey<ScaffoldState> _scaffoldKey=GlobalKey();
+  Token _paymentToken;
+  String _error;
   double width, height;
   @override
   Widget build(BuildContext context) {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Theme.of(context).accentColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -74,7 +78,28 @@ class _OfferScreenState extends State<OfferScreen> {
           Center(
             child: MyButtonRaised(
               onPressed: () {
-                Navigator.push(context, SlideRightRoute(page: AddAddress()));
+               // Navigator.push(context, SlideRightRoute(page: AddAddress()));
+                StripePayment.paymentRequestWithNativePay(
+                  androidPayOptions: AndroidPayPaymentRequest(
+                    totalPrice: "2.40",
+                    currencyCode: "EUR",
+                  ),
+                  applePayOptions: ApplePayPaymentOptions(
+                    countryCode: 'DE',
+                    currencyCode: 'EUR',
+                    items: [
+                      ApplePayItem(
+                        label: 'Test',
+                        amount: '27',
+                      )
+                    ],
+                  ),
+                ).then((token) {
+                  setState(() {
+                    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Received ${token.tokenId}')));
+                    _paymentToken = token;
+                  });
+                }).catchError(setError);
               },
               title: "Rs 1,600.000 per month",
             ),
@@ -127,5 +152,11 @@ class _OfferScreenState extends State<OfferScreen> {
         ],
       ),
     );
+  }
+  void setError(dynamic error) {
+    _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(error.toString())));
+    setState(() {
+      _error = error.toString();
+    });
   }
 }

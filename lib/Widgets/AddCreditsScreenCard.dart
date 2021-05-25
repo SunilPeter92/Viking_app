@@ -54,7 +54,7 @@ class AddCreditsCard extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
                             side: BorderSide(
-                                color: Theme.of(context).primaryColor)),
+                                color: Colors.white)),
                         color: Colors.white,
                         child: Text(
                           "Add",

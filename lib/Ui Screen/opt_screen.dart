@@ -32,14 +32,14 @@ class _OptScreenState extends State<OptScreen> {
           ),
           Row(
             children: [
-              Expanded(child: MyTextField(title: 'First Name',)),
-              Expanded(child: MyTextField(title: 'Last Name',)),
+              Expanded(child: MyTextField(title: 'First Name',obs: false,)),
+              Expanded(child: MyTextField(title: 'Last Name',obs: false,)),
             ],
           ),
-          MyTextField(title: 'Email',),
-          MyTextField(title: 'Phone Number',),
-          MyTextField(title: 'Password',),
-          MyTextField(title: 'Confirm Password',),
+          MyTextField(title: 'Email',obs: false,),
+          MyTextField(title: 'Phone Number',obs: false,),
+          MyTextField(title: 'Password',obs: false,),
+          MyTextField(title: 'Confirm Password',obs: false,),
           SizedBox(height: 10,),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

@@ -14,6 +14,8 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Theme.of(context).cardColor,
+
         title: Text("Choose Area Code", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
@@ -22,6 +24,8 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
       body: ListView(
         children: [
           Card(
+            color: Colors.white,
+
             child: ListTile(
               leading: Text(
                 "205",
@@ -39,12 +43,13 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Colors.grey,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
             child: ListTile(
               leading: Text(
                 "251",
@@ -62,12 +67,15 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+
+                color: Colors.grey,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
+
             child: ListTile(
               leading: Text(
                 "256",
@@ -85,12 +93,15 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+
+                color: Colors.grey,
                 size: 30,
               ),
             ),
           ),
           Card(
+            color: Colors.white,
+
             child: ListTile(
               leading: Text(
                 "334",
@@ -108,7 +119,8 @@ class _ChooseAreaCodeState extends State<ChooseAreaCode> {
               },
               trailing: Icon(
                 Icons.arrow_forward_rounded,
-                color: Colors.orange,
+                color: Colors.grey,
+
                 size: 30,
               ),
             ),

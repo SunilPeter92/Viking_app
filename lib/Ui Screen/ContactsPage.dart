@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:contacts_service/contacts_service.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:viking/Ui%20Screen/DialScreen.dart';
 
 class ContactsPage extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class _ContactsPageState extends State<ContactsPage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          _popupDialog(context, height, width);
+                          _popupDialog(context, height, width,contact.displayName);
                         },
                         child: ListTile(
                           contentPadding: const EdgeInsets.symmetric(
@@ -130,74 +131,75 @@ class _ContactsPageState extends State<ContactsPage> {
   }
 }
 
-void _popupDialog(BuildContext context, double height, double width) {
+void _popupDialog(BuildContext context, double height, double width,String number) {
   showDialog(
       context: context,
       builder: (context) {
         return Dialog(
-          child: Container(
-            alignment: Alignment.center,
-            height: height * .4,
-            //  height: 100,
-            width: width - 100,
-            decoration: BoxDecoration(
-              color: Theme.of(context).canvasColor,
-            ),
-            child: Column(
-              // mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Align(
-                    alignment: Alignment.topRight,
-                    child: Icon(
-                      Icons.cancel,
-                      size: 30,
-                      color: Theme.of(context).cardColor,
-                    ),
+          child:Container(
+              alignment: Alignment.center,
+              height: height * .3,
+              //  height: 100,
+              width: width - 100,
+              decoration: BoxDecoration(
+                // color: Theme.of(context).canvasColor,
+                borderRadius:  BorderRadius.circular(50),
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).canvasColor,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            print(number);
+                            print(number);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DialScreen(number: number,)));
+                          },
+                          child: Icon(
+                            Icons.phone,
+                            size: 60,
+                            color: Theme.of(context).cardColor,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).canvasColor,
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                        child: InkWell(
+                          onTap: () {
+                            print(number);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => DialScreen(number: number,)));
+                          },
+                          child: Icon(
+                            Icons.message,
+                            size: 60,
+                            color: Theme.of(context).cardColor,
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                ),
-                SizedBox(
-                  height: 120,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.phone,
-                          size: 60,
-                          color: Theme.of(context).cardColor,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: InkWell(
-                        onTap: () {},
-                        child: Icon(
-                          Icons.message,
-                          size: 60,
-                          color: Theme.of(context).cardColor,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
         );
       });
 }

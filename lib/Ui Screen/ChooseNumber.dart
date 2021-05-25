@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:viking/API/Api%20Class.dart';
 import '../Animation/Slider.dart';
+import 'ExtendCredits.dart';
 import 'OfferScreen.dart';
 import 'IdentityVerification.dart';
+import 'package:viking/Model/Number.dart';
+
 
 class ChooseNumber extends StatefulWidget {
   String countryname;
@@ -22,67 +26,50 @@ class _ChooseNumberState extends State<ChooseNumber> {
           color: Colors.white,
         ),
       ),
-      body: ListView(
-        children: [
-          Card(
-            margin: EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              left: 20,
-              right: 20,
-            ),
-            color: Colors.white,
-            child: ListTile(
-              leading: Text(
-                "+1 205-548-4393",
-                style: TextStyle(
-                  color: Theme.of(context).canvasColor,
-                  fontSize: 18,
+
+      body: FutureBuilder<Numbers>(
+        future: API.getNumber(widget.countryname),
+        builder: (ct,sp){
+          return sp.data.data==null?Center(child: Text("No Number Found For this Country", style: TextStyle(color: Colors.white))):sp.hasData?ListView.builder(
+            itemCount: sp.data.data.length,
+            itemBuilder: (ct,i){
+              return Card(
+                margin: EdgeInsets.only(
+                  top: 5,
+                  bottom: 5,
+                  left: 5,
+                  right: 5,
                 ),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context,
-                    SlideRightRoute(
-                        page: OfferScreen(
-                      countryname: widget.countryname,
-                      number: "+ 12313214546",
-                    )));
-              },
-              trailing: Icon(
-                Icons.arrow_forward_rounded,
-                color: Theme.of(context).cardColor,
-                size: 25,
-              ),
-            ),
-          ),
-          Card(
-            color: Colors.white,
-            margin: EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              left: 20,
-              right: 20,
-            ),
-            child: ListTile(
-              leading: Text(
-                "+1 205-548-4393",
-                style: TextStyle(
-                    color: Theme.of(context).canvasColor, fontSize: 18),
-              ),
-              onTap: () {
-                Navigator.push(
-                    context, SlideRightRoute(page: IdentityVerification()));
-              },
-              trailing: Icon(
-                Icons.arrow_forward_rounded,
-                color: Theme.of(context).cardColor,
-                size: 25,
-              ),
-            ),
-          ),
-        ],
-      ),
+                color: Colors.white,
+                child: ListTile(
+                  leading: Text(
+                    sp.data.data[i],
+                    style: TextStyle(
+                      color: Theme.of(context).canvasColor,
+                      fontSize: 18,
+                    ),
+                  ),
+                  onTap: () {
+                    // Navigator.push(
+                    //     context,
+                    //     SlideRightRoute(
+                    //         page: OfferScreen(
+                    //           countryname: widget.countryname,
+                    //           number: sp.data.data[i],
+                    //         )));
+                    Navigator.push(context, SlideRightRoute(page: ExtendsCredits(number: sp.data.data[i],)));
+                  },
+                  trailing: Icon(
+                    Icons.arrow_forward_rounded,
+                    color: Theme.of(context).cardColor,
+                    size: 25,
+                  ),
+                ),
+              );
+            },
+          ):Center(child: CircularProgressIndicator(backgroundColor: Colors.white,),);
+        },
+      )
     );
   }
 }

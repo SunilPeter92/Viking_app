@@ -6,6 +6,7 @@ import 'package:viking/Model/GetCountryModel.dart';
 import 'package:viking/Widgets/CountryListCard.dart';
 import 'package:viking/Animation/Slider.dart';
 import 'ActivateNumerScreen.dart';
+import 'ChooseNumber.dart';
 import 'SelectState.dart';
 
 class ChooseCountry extends StatefulWidget {
@@ -204,7 +205,15 @@ class _ChooseCountryState extends State<ChooseCountry> {
           )
         ],
       ),
-      body: ListView.builder(
+      body: users.length == 0 ? Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            CircularProgressIndicator(),
+            Text('Please wait..')
+          ],
+        ),
+      ): ListView.builder(
         itemCount: users.length,
         itemBuilder: (context, index) {
 
@@ -217,15 +226,21 @@ class _ChooseCountryState extends State<ChooseCountry> {
             mms: true,
             sms: true,
             function: () {
+              print(users[index].cData.toJson());
+              print(users[index].fData);
               Navigator.push(
                   context,
                   SlideRightRoute(
-                      page: SelectState(
-                        isIdRequired: false,
-                        countryname: "USA",
-                        countryid: users[index].cData.id,
-                        isAdressRequired: false,
-                      )));
+                    page: ChooseNumber(
+                      countryname: users[index].cData.iso2,
+                    )
+                      // page: SelectState(
+                      //   isIdRequired: false,
+                      //   countryname: "USA",
+                      //   countryid: users[index].cData.id,
+                      //   isAdressRequired: false,
+                      // )
+                  ));
             },
           ) :CircularProgressIndicator ;
         },
