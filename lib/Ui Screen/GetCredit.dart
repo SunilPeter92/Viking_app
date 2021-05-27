@@ -1,13 +1,19 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:progress_dialog/progress_dialog.dart';
 import 'package:stripe_payment/stripe_payment.dart';
 import 'package:viking/API/Api%20Class.dart';
+import 'package:viking/Global/GlobalClass.dart';
 import 'package:viking/Model/GetPkg.dart';
 import 'package:viking/Model/GetPremiumPkg.dart';
+import 'package:viking/Model/GetUserModel.dart';
+
 import 'package:viking/Ui%20Screen/StripPayment.dart';
 import '../Ui Screen/IncreaseBalance.dart';
 import '../Animation/Slider.dart';
+import 'SplashScreen.dart';
 
 class GetCredits extends StatefulWidget {
   @override
@@ -18,9 +24,11 @@ class _GetCreditsState extends State<GetCredits> {
   GlobalKey<ScaffoldState> _scaffoldKey=GlobalKey();
   Token _paymentToken;
   String _error;
+  int id ;
   @override
   void initState() {
     // TODO: implement initState
+    id = Splash.prefs.getInt('userID');
     StripePayment.setOptions(
         StripeOptions(publishableKey: "pk_test_EcVoAnlmOQTc5WD8RfdkMLFd00VPBVeiLz",
             merchantId: "Test",
@@ -72,13 +80,33 @@ class _GetCreditsState extends State<GetCredits> {
                                   fontSize: screenwidth * 0.05,
                                   color: Colors.white),
                             ),
-                            Text(
-                              "0",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: screenwidth * 0.06,
-                              ),
-                            )
+                            FutureBuilder(
+
+                                future: API.GetUser(Global.userResponse.userDetails.id),
+                                builder: (context, snapshot) {
+                                  if (snapshot.hasData) {
+                                    return Text(
+                                      snapshot.data.data.balance,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    );
+                                  } else if (snapshot.hasError) {
+                                    return Text("${snapshot.error}");
+                                  }
+
+                                  // By default, show a loading spinner
+                                  return Container(
+                                    child: Text(
+                                      '0',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                  );
+                                }),
                           ],
                         ),
                       ),
@@ -219,7 +247,20 @@ class _GetCreditsState extends State<GetCredits> {
                                                         _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text('Received ${token.tokenId}')));
                                                         _paymentToken = token;
                                                       });
+                                                      ProgressDialog dialog = ProgressDialog(context);
+                                                      dialog.show();
+                                                      API.BuyPackage(context, snapshot.data.userData[index].id.toString(), Global.userResponse.userDetails.id.toString()).then((value){
+                                                        if(value==200){
+                                                          print('hogya');
+                                                          dialog.hide();
+                                                          Fluttertoast.showToast(msg: 'You have Successfully Purchased Number',toastLength: Toast.LENGTH_SHORT);
+                                                        }
+                                                        else{
+                                                          print('nahi hoa');
+                                                        }
+                                                      });
                                                     }).catchError(setError);
+
                                                     // Navigator.push(
                                                     //     context,
                                                     //     SlideRightRoute(

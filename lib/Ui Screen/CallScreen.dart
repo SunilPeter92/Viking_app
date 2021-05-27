@@ -60,9 +60,9 @@ class _CallScreenState extends State<CallScreen> {
           ),
           Center(
             child: Text(
-              "+92312154684",
+              widget.number,
               style: TextStyle(
-                  fontSize: width * 0.08, color: Theme.of(context).canvasColor),
+                  fontSize: width * 0.08, color: Colors.white),
             ),
           ),
           SizedBox(

@@ -10,6 +10,8 @@ import 'package:viking/Model/getstateModel.dart';
 import 'package:viking/Model/Number.dart';
 import 'package:viking/Model/GetPkg.dart';
 import 'package:viking/Model/GetPremiumPkg.dart';
+import 'package:viking/Model/GetUserModel.dart';
+import 'package:viking/Ui%20Screen/SplashScreen.dart';
 
 import '../Ui Screen/DialScreen.dart';
 import '../Ui Screen/LoginPage.dart';
@@ -66,7 +68,28 @@ class API{
       }
     }).catchError((error) => print(error));
   }
+  static Future<int> BuyNumber(BuildContext context, String phoneNumber, String user_id , ) async {
+    FormData data = FormData.fromMap({
+      "phoneNumber": phoneNumber,
+      "user_id": user_id,
+    });
 
+    Dio dio = new Dio();
+
+    Response response=await dio.post(Global.baseurl + "buy_number", data: data);
+    return response.statusCode;
+  }
+  static Future<int> BuyPackage(BuildContext context, String p_id, String user_id , ) async {
+    FormData data = FormData.fromMap({
+      "p_id": p_id,
+      "user_id": user_id,
+    });
+
+    Dio dio = new Dio();
+
+    Response response=await dio.post(Global.baseurl + "buy_package", data: data);
+    return response.statusCode;
+  }
   static Future getUsers() {
     var url = Global.baseurl + "get_country";
     return http.get(url);
@@ -79,6 +102,22 @@ class API{
     }
   return Numbers();
   }
+
+  static Future<GetUserModel> GetUser(int id) async {
+    try {
+      final http.Response response =
+      await http.get(Global.baseurl + "get_user_details/$id"  );
+
+
+      if (response.statusCode == 200) {
+        return GetUserModel.fromJson(jsonDecode(response.body));
+      }
+    } catch (e) {
+      throw Exception("Unknown Error");
+    }
+  }
+
+
   static Future<GetPkgModel> getpkg() async {
     try {
       final http.Response response =

@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import '../Animation/Slider.dart';
 
 class MessageScreen extends StatefulWidget {
-
-  String no;
-  MessageScreen({this.no}) : super();
-
   @override
   _MessageScreenState createState() => _MessageScreenState();
 }
@@ -20,7 +16,7 @@ class _MessageScreenState extends State<MessageScreen> {
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        title: Text(widget.no, style: TextStyle(color: Colors.white)),
+        title: Text("Assistant ", style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
         ),
@@ -33,57 +29,9 @@ class _MessageScreenState extends State<MessageScreen> {
             SizedBox(
               height: screenheight * 0.07,
             ),
-            // Padding(
-            //   padding: EdgeInsets.only(
-            //     left: screenwidth * 0.05,
-            //     right: screenwidth * 0.05,
-            //   ),
-            //   child: Container(
-            //       decoration: BoxDecoration(
-            //         color: Theme.of(context).cardColor,
-            //         borderRadius: BorderRadius.only(
-            //           topLeft: Radius.circular(20),
-            //           topRight: Radius.circular(20),
-            //           bottomLeft: Radius.circular(20),
-            //         ),
-            //       ),
-            //       child: Padding(
-            //         padding: EdgeInsets.all(screenwidth * 0.05),
-            //         child: Column(
-            //           children: [
-            //             Text(
-            //               " Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremIpsum Lorem Ipsum Lorem",
-            //               style: TextStyle(
-            //                 color: Colors.white,
-            //               ),
-            //             ),
-            //           ],
-            //         ),
-            //       )),
-            // ),
-            // Padding(
-            //   padding: EdgeInsets.only(
-            //       left: screenwidth * 0.05,
-            //       right: screenwidth * 0.05,
-            //       bottom: screenwidth * 0.05),
-            //   child: Container(
-            //       decoration: BoxDecoration(
-            //         color: Colors.grey[200],
-            //         borderRadius: BorderRadius.only(
-            //           topLeft: Radius.circular(20),
-            //           topRight: Radius.circular(20),
-            //           bottomRight: Radius.circular(20),
-            //         ),
-            //       ),
-            //       child: Padding(
-            //         padding: EdgeInsets.all(screenwidth * 0.05),
-            //         child: Text(
-            //             " Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"),
-            //       )),
-            // ),
             Padding(
               padding: EdgeInsets.only(
-                left: screenwidth * 0.5,
+                left: screenwidth * 0.05,
                 right: screenwidth * 0.05,
               ),
               child: Container(
@@ -100,7 +48,7 @@ class _MessageScreenState extends State<MessageScreen> {
                     child: Column(
                       children: [
                         Text(
-                          " I Love You",
+                          " Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremIpsum Lorem Ipsum Lorem",
                           style: TextStyle(
                             color: Colors.white,
                           ),
@@ -112,7 +60,7 @@ class _MessageScreenState extends State<MessageScreen> {
             Padding(
               padding: EdgeInsets.only(
                   left: screenwidth * 0.05,
-                  right: screenwidth * 0.5,
+                  right: screenwidth * 0.05,
                   bottom: screenwidth * 0.05),
               child: Container(
                   decoration: BoxDecoration(
@@ -126,7 +74,7 @@ class _MessageScreenState extends State<MessageScreen> {
                   child: Padding(
                     padding: EdgeInsets.all(screenwidth * 0.05),
                     child: Text(
-                        " Hello"),
+                        " Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"),
                   )),
             ),
           ],
