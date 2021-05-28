@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:viking/Animation/Slider.dart';
+import 'package:viking/Ui%20Screen/MessageScreen.dart';
 import 'package:viking/Ui%20Screen/SearchContacts.dart';
 
 class NewMessegeScreen extends StatefulWidget {
@@ -53,7 +54,7 @@ class _SearchContactsState extends State<NewMessegeScreen> {
           ),
         ),
         Expanded(
-          child: TextField(
+          child: TextFormField(
             controller: tec,
             enabled: false,
               style: TextStyle(
@@ -89,7 +90,62 @@ class _SearchContactsState extends State<NewMessegeScreen> {
           },
         )
       ],
-      )
+      ),
+          Spacer(),
+          Row(
+            children: [
+              SizedBox(
+                width: 10,
+              ),
+              IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.camera_alt_outlined,
+                  color: Theme.of(context).cardColor,
+                  size: screenwidth * 0.1,
+                ),
+              ),
+              Expanded(
+                child: TextField(
+                  onTap: () {},
+                  onSubmitted: (value) {},
+                  style: TextStyle(color: Colors.black),
+                  decoration: InputDecoration(
+                    contentPadding:
+                    EdgeInsets.only(left: 5, bottom: 5, right: 5),
+                    filled: true,
+                    fillColor: Colors.grey[100],
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                      borderSide:
+                      BorderSide(color: Colors.grey[100], width: 1.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(50.0),
+                      borderSide:
+                      BorderSide(color: Colors.grey[100], width: 1.0),
+                    ),
+                    hintText: "Type a message",
+                    hintStyle: TextStyle(fontSize: 15.0, color: Colors.grey),
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(
+                  Icons.send,
+                  color: Theme.of(context).cardColor,
+                  size: screenwidth * 0.1,
+                ),
+                onPressed: () {
+                  Navigator.push(
+                      context, SlideRightRoute(page: MessageScreen()));
+                },
+              ),
+              SizedBox(
+                width: 8,
+              ),
+            ],
+          ),
         ],
       ),
     );

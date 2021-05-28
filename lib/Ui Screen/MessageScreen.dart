@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Animation/Slider.dart';
 
 class MessageScreen extends StatefulWidget {
+
   @override
   _MessageScreenState createState() => _MessageScreenState();
 }
