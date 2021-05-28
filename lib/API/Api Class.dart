@@ -94,6 +94,14 @@ class API{
     var url = Global.baseurl + "get_country";
     return http.get(url);
   }
+  static Future getConversation() {
+    var url = Global.baseurl + "conversation";
+    return http.get(url);
+  }
+  static Future getInboxes() {
+    var url = Global.baseurl + "chat_numbers";
+    return http.get(url);
+  }
   static Future<Numbers> getNumber(String code) async {
     var url = Global.baseurl + "get_number?country_code=$code";
     http.Response response=await http.get(url);
