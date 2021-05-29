@@ -120,7 +120,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
                 ),
                 onTap: () {
                   Navigator.push(
-                      context, SlideRightRoute(page: MessageScreen( )));
+                      context, SlideRightRoute(page: MessageScreen()));
                 },
                 leading: CircleAvatar(
                   radius: 25,
