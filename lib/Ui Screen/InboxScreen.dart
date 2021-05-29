@@ -11,6 +11,8 @@ class InBoxScreen extends StatefulWidget {
 }
 
 class _InBoxScreenState extends State<InBoxScreen> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +23,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
           color: Colors.white,
         ),
         title: Text(
-          "Inbox Screen",
+          "Inbox ",
           style: TextStyle(color: Colors.white),
         ),
         actions: [
