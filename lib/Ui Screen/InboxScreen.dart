@@ -1,13 +1,9 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:viking/Ui%20Screen/DialScreen.dart';
 import 'package:viking/Ui%20Screen/SearchContacts.dart';
 import 'package:viking/Ui%20Screen/NewMessegePage.dart';
-import '../API/Api Class.dart';
 import '../Animation/Slider.dart';
 import 'MessageScreen.dart';
-import '../Model/Inbox.dart';
 
 class InBoxScreen extends StatefulWidget {
   @override
@@ -15,21 +11,6 @@ class InBoxScreen extends StatefulWidget {
 }
 
 class _InBoxScreenState extends State<InBoxScreen> {
-  List<Inbox> inboxList=[];
-  getInboxList() {
-    API.getInboxes().then((response) {
-      setState(() {
-        Iterable list = json.decode(response.body);
-        inboxList = list.map((model) => Inbox.fromJson(model)).toList();
-      });
-    });
-  }
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getInboxList();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,10 +37,9 @@ class _InBoxScreenState extends State<InBoxScreen> {
 
       ),
       body: SafeArea(
-        child: ListView.builder(
-          itemCount: inboxList.length,
-          itemBuilder: (ct,i){
-            return Card(
+        child: ListView(
+          children: [
+            Card(
               margin: EdgeInsets.only(
                 top: 10,
                 bottom: 10,
@@ -70,7 +50,7 @@ class _InBoxScreenState extends State<InBoxScreen> {
               child: ListTile(
                 onTap: () {
                   Navigator.push(
-                      context, SlideRightRoute(page: MessageScreen(number: 'Reyan',)));
+                      context, SlideRightRoute(page: MessageScreen()));
                 },
                 trailing: Text(
                   "4:45 pm",
@@ -82,18 +62,83 @@ class _InBoxScreenState extends State<InBoxScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20.0),
                       child:
-                      Image.network("http://www.gravatar.com/avatar/?d=mp"),
+                          Image.network("http://www.gravatar.com/avatar/?d=mp"),
                     ),
                   ),
                 ),
                 title: Text(
-                  inboxList[i].to,
+                  "John micheal",
                   style: TextStyle(fontSize: 15),
                 ),
               ),
-            );
-          },
-
+            ),
+            Card(
+              margin: EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+                left: 20,
+              ),
+              color: Colors.white,
+              child: ListTile(
+                trailing: Text(
+                  "3:45 pm",
+                  style: TextStyle(fontSize: 15),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context, SlideRightRoute(page: MessageScreen()));
+                },
+                leading: CircleAvatar(
+                  radius: 25,
+                  child: ClipOval(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child:
+                          Image.network("http://www.gravatar.com/avatar/?d=mp"),
+                    ),
+                  ),
+                ),
+                title: Text(
+                  "Jaymes charles",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ),
+            Card(
+              margin: EdgeInsets.only(
+                top: 10,
+                bottom: 10,
+                right: 20,
+                left: 20,
+              ),
+              color: Colors.white,
+              child: ListTile(
+                trailing: Text(
+                  "4:45 pm",
+                  style: TextStyle(fontSize: 15),
+                ),
+                onTap: () {
+                  Navigator.push(
+                      context, SlideRightRoute(page: MessageScreen()));
+                },
+                leading: CircleAvatar(
+                  radius: 25,
+                  child: ClipOval(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20.0),
+                      child:
+                          Image.network("http://www.gravatar.com/avatar/?d=mp"),
+                    ),
+                  ),
+                ),
+                title: Text(
+                  "George charles",
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
