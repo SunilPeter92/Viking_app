@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:viking/Animation/Slider.dart';
-import 'package:viking/Ui%20Screen/MessageScreen.dart';
 import 'package:viking/Ui%20Screen/SearchContacts.dart';
+
+import 'MessageScreen.dart';
 
 class NewMessegeScreen extends StatefulWidget {
   final String number;
@@ -54,7 +55,7 @@ class _SearchContactsState extends State<NewMessegeScreen> {
           ),
         ),
         Expanded(
-          child: TextFormField(
+          child: TextField(
             controller: tec,
             enabled: false,
               style: TextStyle(
@@ -138,7 +139,7 @@ class _SearchContactsState extends State<NewMessegeScreen> {
                 ),
                 onPressed: () {
                   Navigator.push(
-                      context, SlideRightRoute(page: MessageScreen()));
+                      context, SlideRightRoute(page: MessageScreen(number:tec.text)));
                 },
               ),
               SizedBox(

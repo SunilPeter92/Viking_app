@@ -1,13 +1,38 @@
+import 'dart:convert';
+import '../Model/Conversation.dart';
 import 'package:flutter/material.dart';
+import '../API/Api Class.dart';
 import '../Animation/Slider.dart';
+import '../Widgets/inComing.dart';
+import '../Widgets/OutGoing.dart';
 
 class MessageScreen extends StatefulWidget {
+  final String number;
+
+  const MessageScreen({Key key, this.number}) : super(key: key);
   @override
   _MessageScreenState createState() => _MessageScreenState();
 }
 
 class _MessageScreenState extends State<MessageScreen> {
   double screenwidth, screenheight;
+  var Time;
+  List<Conversation> conversion=[];
+
+  getConversation() {
+    API.getConversation().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        conversion = list.map((model) => Conversation.fromJson(model)).toList();
+      });
+    });
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getConversation();
+  }
   @override
   Widget build(BuildContext context) {
     screenwidth = MediaQuery.of(context).size.width;
@@ -16,69 +41,28 @@ class _MessageScreenState extends State<MessageScreen> {
       backgroundColor: Theme.of(context).accentColor,
       appBar: AppBar(
         backgroundColor: Theme.of(context).cardColor,
-        title: Text("Assistant ", style: TextStyle(color: Colors.white)),
+        title: Text(widget.number, style: TextStyle(color: Colors.white)),
         leading: BackButton(
           color: Colors.white,
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: screenwidth * 0.02),
-        child: ListView(
-          reverse: true,
+      body:
+      ListView.builder(
+        reverse: true,
+        itemCount: conversion.length,
+          itemBuilder: (ct,i){
+          Conversation conversation=conversion[i];
+        return Column(
           children: [
-            SizedBox(
-              height: screenheight * 0.07,
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                left: screenwidth * 0.05,
-                right: screenwidth * 0.05,
-              ),
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: Theme.of(context).cardColor,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomLeft: Radius.circular(20),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(screenwidth * 0.05),
-                    child: Column(
-                      children: [
-                        Text(
-                          " Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremIpsum Lorem Ipsum Lorem",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
-                  )),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: screenwidth * 0.05,
-                  right: screenwidth * 0.05,
-                  bottom: screenwidth * 0.05),
-              child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                      bottomRight: Radius.circular(20),
-                    ),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(screenwidth * 0.05),
-                    child: Text(
-                        " Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum"),
-                  )),
-            ),
+
+            conversation.outgoingMsg!=null?OutGoing(text: conversation.outgoingMsg,time: gettime(conversation.outgoingDate.date),):Container(),
+
+            conversation.incomingMsg!=null?InComing(text: conversation.incomingMsg ,time: gettime(conversation.incomingDate.date),):Container(),
+
+            SizedBox(height: screenwidth * 0.05,)
           ],
-        ),
+        );
+      }
       ),
       bottomNavigationBar: Transform.translate(
         offset: Offset(0.0, -1 * MediaQuery.of(context).viewInsets.bottom),
@@ -128,8 +112,8 @@ class _MessageScreenState extends State<MessageScreen> {
                   size: screenwidth * 0.1,
                 ),
                 onPressed: () {
-                  Navigator.push(
-                      context, SlideRightRoute(page: MessageScreen()));
+                  // Navigator.push(
+                  //     context, SlideRightRoute(page: MessageScreen()));
                 },
               ),
               SizedBox(
@@ -140,5 +124,27 @@ class _MessageScreenState extends State<MessageScreen> {
         ),
       ),
     );
+  }
+
+ gettime(time){
+     Time = DateTime.parse(time.toString());
+   // var timenow = DateTime.now();
+   //  var diff = timenow.difference(Time).inDays;
+   //  return diff.toString() ;
+   Duration difference = DateTime.now().difference(Time);
+
+     if (difference.inDays > 8) {
+       return Time;
+     }  else if (difference.inDays >= 2) {
+       return '${difference.inDays} days ago';
+     } else if (difference.inHours >= 2) {
+       return '${difference.inHours} hours ago';
+     } else if (difference.inMinutes >= 2) {
+       return '${difference.inMinutes} minutes ago';
+     } else if (difference.inSeconds >= 3) {
+       return '${difference.inSeconds} seconds ago';
+     } else {
+       return 'Just now';
+     }
   }
 }
