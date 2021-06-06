@@ -5,6 +5,7 @@ import '../API/Api Class.dart';
 import '../Animation/Slider.dart';
 import '../Widgets/inComing.dart';
 import '../Widgets/OutGoing.dart';
+import 'package:intl/intl.dart';
 
 class MessageScreen extends StatefulWidget {
   final String number;
@@ -17,7 +18,7 @@ class MessageScreen extends StatefulWidget {
 class _MessageScreenState extends State<MessageScreen> {
   double screenwidth, screenheight;
   var Time;
-  List<Conversation> conversion=[];
+  List<Conversation> conversion = [];
 
   getConversation() {
     API.getConversation().then((response) {
@@ -27,12 +28,14 @@ class _MessageScreenState extends State<MessageScreen> {
       });
     });
   }
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getConversation();
   }
+
   @override
   Widget build(BuildContext context) {
     screenwidth = MediaQuery.of(context).size.width;
@@ -46,24 +49,31 @@ class _MessageScreenState extends State<MessageScreen> {
           color: Colors.white,
         ),
       ),
-      body:
-      ListView.builder(
-        reverse: true,
-        itemCount: conversion.length,
-          itemBuilder: (ct,i){
-          Conversation conversation=conversion[i];
-        return Column(
-          children: [
-
-            conversation.outgoingMsg!=null?OutGoing(text: conversation.outgoingMsg,time: gettime(conversation.outgoingDate.date),):Container(),
-
-            conversation.incomingMsg!=null?InComing(text: conversation.incomingMsg ,time: gettime(conversation.incomingDate.date),):Container(),
-
-            SizedBox(height: screenwidth * 0.05,)
-          ],
-        );
-      }
-      ),
+      body: ListView.builder(
+          reverse: true,
+          itemCount: conversion.length,
+          itemBuilder: (ct, i) {
+            Conversation conversation = conversion[i];
+            return Column(
+              children: [
+                conversation.outgoingMsg != null
+                    ? OutGoing(
+                        text: conversation.outgoingMsg,
+                        time: timeAgoSinceDate(conversation.outgoingDate.date),
+                      )
+                    : Container(),
+                conversation.incomingMsg != null
+                    ? InComing(
+                        text: conversation.incomingMsg,
+                        time: timeAgoSinceDate(conversation.incomingDate.date),
+                      )
+                    : Container(),
+                SizedBox(
+                  height: screenwidth * 0.05,
+                )
+              ],
+            );
+          }),
       bottomNavigationBar: Transform.translate(
         offset: Offset(0.0, -1 * MediaQuery.of(context).viewInsets.bottom),
         child: Container(
@@ -126,25 +136,32 @@ class _MessageScreenState extends State<MessageScreen> {
     );
   }
 
- gettime(time){
-     Time = DateTime.parse(time.toString());
-   // var timenow = DateTime.now();
-   //  var diff = timenow.difference(Time).inDays;
-   //  return diff.toString() ;
-   Duration difference = DateTime.now().difference(Time);
-
-     if (difference.inDays > 8) {
-       return Time;
-     }  else if (difference.inDays >= 2) {
-       return '${difference.inDays} days ago';
-     } else if (difference.inHours >= 2) {
-       return '${difference.inHours} hours ago';
-     } else if (difference.inMinutes >= 2) {
-       return '${difference.inMinutes} minutes ago';
-     } else if (difference.inSeconds >= 3) {
-       return '${difference.inSeconds} seconds ago';
-     } else {
-       return 'Just now';
-     }
+  String timeAgoSinceDate(String time, {bool numericDate=true}) {
+    DateTime date = DateFormat("yyyy-MM-dd HH:mm:ss").parse(time);
+    DateTime date2 = DateTime.now();
+    Duration difference = date2.difference(date);
+    if (difference.inDays > 8) {
+      return date.toString();
+      // return date.toString();
+    } else if ((difference.inDays / 7).floor() >= 1) {
+      return numericDate?"1 week ago":"Last week";
+    } else if(difference.inDays>=2){
+      return "${difference.inDays} days ago";
+    } else if(difference.inDays >= 1){
+      return numericDate?"1 day ago":"yesterday";
+    }else if(difference.inHours>=2){
+      return "${difference.inHours} hours ago";
+    }else if(difference.inHours>=1){
+      return numericDate?"1 hour ago":"An Hour ago";
+    }else if(difference.inMinutes>=2){
+      return "${difference.inMinutes} minutes ago";
+    }else if(difference.inMinutes>=1){
+      return numericDate?"1 minute ago":"a minute ago";
+    }else if(difference.inSeconds>=2){
+      return "${difference.inSeconds} seconds ago";
+    }
+    else{
+      return "Just now";
+    }
   }
 }

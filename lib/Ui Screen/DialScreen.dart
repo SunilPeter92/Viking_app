@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:viking/Ui%20Screen/ContactsPage.dart';
+import 'package:viking/Ui%20Screen/LoginPage.dart';
 import 'package:viking/Ui%20Screen/RenewPhone.dart';
 import 'CallScreen.dart';
 import '../Animation/Slider.dart';
@@ -405,7 +407,7 @@ class _DialScreenState extends State<DialScreen> {
                   style: textStyle(context),
                 ),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Settings()));
+               //   Navigator.push(context, SlideRightRoute(page: Settings()));
                 },
               ),
               ListTile(
@@ -418,9 +420,7 @@ class _DialScreenState extends State<DialScreen> {
                   "Support",
                   style: textStyle(context),
                 ),
-                onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Settings()));
-                },
+                onTap: _launchEmail
               ),
               ListTile(
                 leading: Icon(
@@ -433,7 +433,7 @@ class _DialScreenState extends State<DialScreen> {
                   style: textStyle(context),
                 ),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: Settings()));
+                //  Navigator.push(context, SlideRightRoute(page: Settings()));
                 },
               ),
               ListTile(
@@ -443,11 +443,11 @@ class _DialScreenState extends State<DialScreen> {
                   color: Theme.of(context).canvasColor,
                 ),
                 title: Text(
-                  "EPLGROUP",
+                  "Logout",
                   style: textStyle(context),
                 ),
                 onTap: () {
-                  Navigator.push(context, SlideRightRoute(page: OptScreen()));
+                  Navigator.push(context, SlideRightRoute(page: LoginPage()));
                 },
               ),
               Row(
@@ -463,6 +463,10 @@ class _DialScreenState extends State<DialScreen> {
         ),
       ),
     );
+  }
+  _launchEmail() async {
+    launch(
+        "mailto:reyana015@gmail.com?subject=TestEmail&body=How are you%20plugin");
   }
 }
 

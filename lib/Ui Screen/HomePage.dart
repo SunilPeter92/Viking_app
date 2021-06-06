@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
 import 'package:viking/Ui%20Screen/GetCredit.dart';
 import 'package:viking/Ui%20Screen/IncreaseBalance.dart';
+import 'package:viking/Ui%20Screen/Support.dart';
 import 'RenewPhone.dart';
 import 'package:viking/Widgets/CreditsBox.dart';
 import 'package:viking/Widgets/MinutesAndTexts.dart';
@@ -172,85 +174,97 @@ class _HomeState extends State<Home> {
               SizedBox(height: height * 0.05),
               Row(
                 children: [
-                  Container(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(width * 0.03),
-                          child: Row(
+                  InkWell(
+                    onTap: (){
+                      Navigator.push(
+                          context, SlideRightRoute(page: Support()));
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(width * 0.03),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.help_outline_outlined,
+                                  color: Colors.white,
+                                  size: width * 0.09,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: height * 0.005),
+                          Row(
                             children: [
-                              Icon(
-                                Icons.help_outline_outlined,
-                                color: Colors.white,
-                                size: width * 0.09,
+                              Padding(
+                                padding: EdgeInsets.all(width * 0.03),
+                                child: Text(
+                                  "Get Help",
+                                  style: TextStyle(
+                                      fontSize: width * 0.035,
+                                      color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: height * 0.005),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(width * 0.03),
-                              child: Text(
-                                "Get Help",
-                                style: TextStyle(
-                                    fontSize: width * 0.035,
-                                    color: Colors.white),
-                              ),
+                        ],
+                      ),
+                      height: height * 0.15,
+                      width: width / 2.5,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.all(Radius.circular(
+                                15.0) //                 <--- border radius here
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    height: height * 0.15,
-                    width: width / 2.5,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor,
-                      borderRadius: BorderRadius.all(Radius.circular(
-                              15.0) //                 <--- border radius here
-                          ),
+                      ),
                     ),
                   ),
                   SizedBox(width: width * 0.01),
-                  Container(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.all(width * 0.03),
-                          child: Row(
+                  InkWell(
+                    onTap: (){
+                      LaunchReview.launch(androidAppId: "com.jrzheng.supervpnfree",
+                          iOSAppId: "284882215");
+                    },
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: EdgeInsets.all(width * 0.03),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.lock_outline,
+                                  color: Colors.white,
+                                  size: width * 0.09,
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: height * 0.005),
+                          Row(
                             children: [
-                              Icon(
-                                Icons.lock_outline,
-                                color: Colors.white,
-                                size: width * 0.09,
+                              Padding(
+                                padding: EdgeInsets.all(width * 0.03),
+                                child: Text(
+                                  "Install VPN Vault",
+                                  style: TextStyle(
+                                      fontSize: width * 0.035,
+                                      color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: height * 0.005),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.all(width * 0.03),
-                              child: Text(
-                                "Install VPN Vault",
-                                style: TextStyle(
-                                    fontSize: width * 0.035,
-                                    color: Colors.white),
-                              ),
+                        ],
+                      ),
+                      height: height * 0.15,
+                      width: width / 2.5,
+                      decoration: BoxDecoration(
+                        color: Theme.of(context).cardColor,
+                        borderRadius: BorderRadius.all(Radius.circular(
+                                15.0) //                 <--- border radius here
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    height: height * 0.15,
-                    width: width / 2.5,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).cardColor,
-                      borderRadius: BorderRadius.all(Radius.circular(
-                              15.0) //                 <--- border radius here
-                          ),
+                      ),
                     ),
                   ),
                 ],

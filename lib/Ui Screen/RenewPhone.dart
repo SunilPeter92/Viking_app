@@ -4,6 +4,8 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:provider/provider.dart';
 import 'package:viking/Animation/Slider.dart';
 import 'package:viking/Ui%20Screen/ColorProvider.dart';
+import 'package:viking/Ui%20Screen/VoiceMail.dart';
+import 'package:viking/Ui%20Screen/Disturb.dart';
 import 'package:viking/Ui Screen/RingTonePlayer.dart';
 
 class RenewPhone extends StatefulWidget {
@@ -276,54 +278,60 @@ class _RenewPhoneState extends State<RenewPhone> {
               SizedBox(
                 height: screenheight * 0.05,
               ),
-              Container(
-                width: screenwidth * 0.9,
-                height: screenheight * 0.14,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15.0),
-                    topRight: Radius.circular(15.0), //
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                      context, SlideRightRoute(page: ForwardingVoiceMail()));
+                },
+                child: Container(
+                  width: screenwidth * 0.9,
+                  height: screenheight * 0.14,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0), //
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(screenheight * 0.02),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text("Forwarding / Voice Mail",
-                              style: TextStyle(
-                                  fontSize: screenwidth * 0.04,
-                                  color: Colors.grey[900]))
-                        ],
-                      ),
-                      SizedBox(
-                        height: screenheight * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Set up call fowarding or \n voicemail",
-                              style: TextStyle(
-                                  fontSize: screenwidth * 0.03,
-                                  color: Colors.grey[500])),
-                          Row(
-                            children: [
-                              Text("Default",
-                                  style: TextStyle(
-                                      fontSize: screenwidth * 0.033,
-                                      color: Colors.grey[500])),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Theme.of(context).cardColor,
-                                size: screenwidth * 0.07,
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.all(screenheight * 0.02),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text("Forwarding / Voice Mail",
+                                style: TextStyle(
+                                    fontSize: screenwidth * 0.04,
+                                    color: Colors.grey[900]))
+                          ],
+                        ),
+                        SizedBox(
+                          height: screenheight * 0.01,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Set up call fowarding or \n voicemail",
+                                style: TextStyle(
+                                    fontSize: screenwidth * 0.03,
+                                    color: Colors.grey[500])),
+                            Row(
+                              children: [
+                                Text("Default",
+                                    style: TextStyle(
+                                        fontSize: screenwidth * 0.033,
+                                        color: Colors.grey[500])),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Theme.of(context).cardColor,
+                                  size: screenwidth * 0.07,
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -392,54 +400,60 @@ class _RenewPhoneState extends State<RenewPhone> {
               SizedBox(
                 height: screenheight * 0.05,
               ),
-              Container(
-                width: screenwidth * 0.9,
-                height: screenheight * 0.14,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15.0),
-                    topRight: Radius.circular(15.0), //
+              InkWell(
+                onTap: (){
+                  Navigator.push(
+                      context, SlideRightRoute(page: Disturb()));
+                },
+                child: Container(
+                  width: screenwidth * 0.9,
+                  height: screenheight * 0.14,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0), //
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(screenheight * 0.02),
-                  child: Column(
-                    children: [
-                      Row(
-                        children: [
-                          Text("Do Not Distrub",
-                              style: TextStyle(
-                                  fontSize: screenwidth * 0.04,
-                                  color: Colors.grey[900]))
-                        ],
-                      ),
-                      SizedBox(
-                        height: screenheight * 0.01,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text("Hide Notification for calls and texts",
-                              style: TextStyle(
-                                  fontSize: screenwidth * 0.03,
-                                  color: Colors.grey[500])),
-                          Row(
-                            children: [
-                              Text("Default",
-                                  style: TextStyle(
-                                      fontSize: screenwidth * 0.033,
-                                      color: Colors.grey[500])),
-                              Icon(
-                                Icons.arrow_forward,
-                                color: Theme.of(context).cardColor,
-                                size: screenwidth * 0.07,
-                              ),
-                            ],
-                          ),
-                        ],
-                      )
-                    ],
+                  child: Padding(
+                    padding: EdgeInsets.all(screenheight * 0.02),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text("Do Not Distrub",
+                                style: TextStyle(
+                                    fontSize: screenwidth * 0.04,
+                                    color: Colors.grey[900]))
+                          ],
+                        ),
+                        SizedBox(
+                          height: screenheight * 0.01,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Hide Notification for calls and texts",
+                                style: TextStyle(
+                                    fontSize: screenwidth * 0.03,
+                                    color: Colors.grey[500])),
+                            Row(
+                              children: [
+                                Text("Default",
+                                    style: TextStyle(
+                                        fontSize: screenwidth * 0.033,
+                                        color: Colors.grey[500])),
+                                Icon(
+                                  Icons.arrow_forward,
+                                  color: Theme.of(context).cardColor,
+                                  size: screenwidth * 0.07,
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),

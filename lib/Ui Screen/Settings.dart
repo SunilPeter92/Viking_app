@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:launch_review/launch_review.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -23,8 +25,7 @@ class _SettingsState extends State<Settings> {
             onTap: () {},
             leading: Text(
               "Help",
-              style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                style: TextStyle(color: Colors.white, fontSize: 18)
             ),
           ),
           ListTile(
@@ -32,23 +33,27 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "International Pricing",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 15),
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: () {
+              LaunchReview.launch(androidAppId: "com.facebook.katana",
+                  iOSAppId: "284882215");
+            },
             leading: Text(
               "Rate the app",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 15),
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap:
+            _launchURL,
             leading: Text(
               "FAQ",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 15),
             ),
           ),
           ListTile(
@@ -56,27 +61,37 @@ class _SettingsState extends State<Settings> {
             leading: Text(
               "Account",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Colors.white, fontSize: 18),
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap:
+            _launchURL,
             leading: Text(
               "Privacy Policy",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 15),
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap:
+            _launchURL,
             leading: Text(
               "Terms of Use",
               style:
-                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 18),
+                  TextStyle(color: Theme.of(context).canvasColor, fontSize: 15),
             ),
           ),
         ],
       ),
     );
+  }
+  _launchURL() async {
+    const url = 'https://flutter.io';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
